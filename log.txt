@@ -1,32 +1,51 @@
-2024-03-05 18:37:36 UTC
+2024-09-07 23:47:45 UTC
 Windows-10-10.0.19041
 Ren'Py 8.2.0.24012702
 
-Early init took 0.20s
-Loading error handling took 0.35s
-Loading script took 5.46s
-Loading save slot metadata took 0.08s
+Early init took 0.18s
+Loading error handling took 0.09s
+Loading script took 0.30s
+Loading save slot metadata took 0.06s
 Loading persistent took 0.00s
-Running init code took 0.37s
-Loading analysis data took 0.00s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.05s
+Running init code took 0.13s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.08s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\joker\\AppData\\Roaming/RenPy/backups\\Jinrou no Mori':
-Dump and make backups took 0.13s
+Dump and make backups took 0.19s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.10s
+Initial gc took 0.09s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.01s
+Creating interface object took 0.06s
 Cleaning stores took 0.00s
-Init translation took 0.08s
-Build styles took 0.01s
+Init translation took 0.09s
+Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.06s
-Save screen analysis took 0.02s
-Prepare screens took 0.39s
-Save pyanalysis. took 0.03s
-Save bytecode. took 0.06s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.13s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1366, 768)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'ATI Technologies Inc.'"
+Renderer: b'AMD Radeon(TM) Vega 8 Graphics'
+Version: b'4.6.13596 Compatibility Profile Context 20.10.30.11 27.20.11030.11001'
+Display Info: None
+Screen sizes: virtual=(1280, 720) physical=(1366, 745) drawable=(1366, 745)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1280, 720) physical=(1366, 745) drawable=(1366, 745)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1280, 720) physical=(1366, 745) drawable=(1366, 745)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1280, 720) physical=(1366, 745) drawable=(1366, 745)
+Maximum texture size: 4096x4096
