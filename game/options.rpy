@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.5"
+define config.version = "demo 0.1"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -46,6 +46,7 @@ define build.name = "JinrounoMoriAlpha"
 ## to the player by default. Setting one of these to False will hide the
 ## appropriate mixer.
 
+
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
@@ -62,7 +63,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "soundtrack/floresta.ogg"
 
 
 ## Transitions #################################################################

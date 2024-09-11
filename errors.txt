@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 191: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    pause(2.0)
-    ^
+File "game/inventario.rpy", line 38: hbox expects a non-empty block.
+    hbox:
+         ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Sat Mar  2 11:49:08 2024
+Wed Sep 11 19:31:43 2024

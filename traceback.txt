@@ -5,74 +5,72 @@ While running game code:
     $ ui.interact()
   File "renpy/common/00gamemenu.rpy", line 174, in <module>
     $ ui.interact()
-  File "game/screens.rpy", line 759, in execute
-    screen preferences():
-  File "game/screens.rpy", line 759, in execute
-    screen preferences():
-  File "game/screens.rpy", line 763, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 447, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 447, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 451, in execute
-    if main_menu:
-  File "game/screens.rpy", line 454, in execute
-    add gui.game_menu_background
-  File "game/screens.rpy", line 454, in <module>
-    add gui.game_menu_background
-AttributeError: 'StoreModule' object has no attribute 'game_menu_background'
+  File "renpy/common/00action_other.rpy", line 586, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/Itens.rpy", line 31, in show_item_description
+    renpy.say(mc, f"Este é o {item.name}. {item.description}")
+Exception: Cannot start an interaction in the middle of an interaction, without creating a new context.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "renpy/common/00gamemenu.rpy", line 174, in script
     $ ui.interact()
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
     exec(bytecode, globals, locals)
   File "renpy/common/00gamemenu.rpy", line 174, in <module>
     $ ui.interact()
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\ui.py", line 301, in interact
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\core.py", line 2165, in interact
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\core.py", line 2165, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\core.py", line 2683, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\screen.py", line 480, in visit_all
-    callback(self)
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\core.py", line 2683, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\screen.py", line 491, in per_interact
-    self.update()
-  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\display\screen.py", line 697, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 759, in execute
-    screen preferences():
-  File "game/screens.rpy", line 759, in execute
-    screen preferences():
-  File "game/screens.rpy", line 763, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 447, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 447, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 451, in execute
-    if main_menu:
-  File "game/screens.rpy", line 454, in execute
-    add gui.game_menu_background
-  File "game/screens.rpy", line 454, in <module>
-    add gui.game_menu_background
-AttributeError: 'StoreModule' object has no attribute 'game_menu_background'
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\core.py", line 3197, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 1202, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 1202, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 1202, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\screen.py", line 793, in event
+    rv = self.child.event(ev, x, y, st)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 1202, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 1426, in event
+    rv = super(Window, self).event(ev, x, y, st)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 288, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 1202, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\layout.py", line 1202, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\behavior.py", line 1174, in event
+    return handle_click(self.clicked)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\behavior.py", line 1095, in handle_click
+    rv = run(action)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\behavior.py", line 395, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_other.rpy", line 586, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/Itens.rpy", line 31, in show_item_description
+    renpy.say(mc, f"Este é o {item.name}. {item.description}")
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\exports.py", line 1493, in say
+    who(what, *args, **kwargs)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\character.py", line 1391, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\character.py", line 1042, in do_display
+    display_say(who,
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\character.py", line 738, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\core.py", line 2134, in interact
+    raise Exception("Cannot start an interaction in the middle of an interaction, without creating a new context.")
+Exception: Cannot start an interaction in the middle of an interaction, without creating a new context.
 
-Windows-10-10.0.19041 AMD64
+Windows-10-10.0.22621 AMD64
 Ren'Py 8.2.0.24012702
-Jinrou no Mori 1.5
-Sat Mar  2 10:49:26 2024
+Jinrou no Mori demo 0.1
+Wed Sep 11 19:35:50 2024

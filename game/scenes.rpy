@@ -17,4 +17,4 @@ image scene_evening = "BACKGROUND_outside_house_EVENING.png"
 
 #End Label/Credits
 
-image scene_credits = "credits3.png"
+image scene_credits = "endcredits5.png"

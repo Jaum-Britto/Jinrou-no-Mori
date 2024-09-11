@@ -129,7 +129,6 @@ style say_thought is say_dialogue
 style namebox is default
 style namebox_label is say_label
 
-
 style window:
     xalign 0.5
     xfill True
@@ -137,6 +136,23 @@ style window:
     ysize gui.textbox_height
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+
+#style window:
+    #xalign 0.5
+    #xfill True
+    #yalign gui.textbox_yalign
+    #ysize gui.textbox_height
+
+    #background Image("gui/b.png", xalign=0.5, yalign=1.0)
+
+#style window:
+    #xalign 0.5
+    #xfill True
+    #yalign gui.textbox_yalign
+    #ysize gui.textbox_height
+
+    #background Image("gui/a.png", xalign=0.5, yalign=1.0)
+
 
 style namebox:
     xpos gui.name_xpos
@@ -316,50 +332,50 @@ style quick_button_text:
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
 
-screen navigation():
+#screen navigation():
 
-    vbox:
-        style_prefix "navigation"
+    #vbox:
+        #style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        #xpos gui.navigation_xpos
+        #yalign 0.5
 
-        spacing gui.navigation_spacing
+        #spacing gui.navigation_spacing
 
-        if main_menu:
+        #if main_menu:
 
-            textbutton _("Start") action Start()
+            #textbutton _("Start") action Start()
 
-        else:
+        #else:
 
-            textbutton _("History") action ShowMenu("history")
+            #textbutton _("History") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            #textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        #textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        #textbutton _("Preferences") action ShowMenu("preferences")
 
-        if _in_replay:
+        #if _in_replay:
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+            #textbutton _("End Replay") action EndReplay(confirm=True)
 
-        elif not main_menu:
+        #elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            #textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        #textbutton _("About") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            #textbutton _("Help") action ShowMenu("help")
 
-        if renpy.variant("pc"):
+        #if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            #textbutton _("Quit") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -392,7 +408,57 @@ screen main_menu():
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation
+    #use navigation
+
+    fixed:
+        style_prefix "navigation"
+
+        #xpos gui.navigation_xpos
+        #yalign 0.5
+
+        spacing gui.navigation_spacing
+
+        if main_menu:
+
+            #textbutton _("Start") action Start()
+            imagebutton auto "gui/btn_start_%s.png" focus_mask True action Start ()
+
+        else:
+
+            textbutton _("History") action ShowMenu("history")
+
+            textbutton _("Save") action ShowMenu("save")
+
+        #textbutton _("Load") action ShowMenu("load")
+        imagebutton auto "gui/load_%s.png" focus_mask True action ShowMenu("load")
+
+        #textbutton _("Preferences") action ShowMenu("preferences")
+        imagebutton auto "gui/preferences_%s.png" focus_mask True action ShowMenu("preferences")
+        
+        if renpy.get_screen("main_menu"):
+            imagebutton auto "gui/gallery_%s.png" focus_mask True action ShowMenu("gallery")  
+
+
+        if _in_replay:
+
+            textbutton _("End Replay") action EndReplay(confirm=True)
+
+        elif not main_menu:
+
+            textbutton _("Main Menu") action MainMenu()
+
+        #textbutton _("About") action ShowMenu("about")
+
+        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+
+        #    ## Help isn't necessary or relevant to mobile devices.
+        #    textbutton _("Help") action ShowMenu("help")
+
+        if renpy.variant("pc"):
+
+            ## The quit button is banned on iOS and unnecessary on Android and
+            ## Web.
+            imagebutton auto "gui/exit_%s.png" focus_mask True action Quit(confirm=not main_menu)
 
     if gui.show_name:
 
@@ -502,7 +568,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
                     transclude
 
-    use navigation
+    #use navigation
 
     textbutton _("Return"):
         style "return_button"
@@ -1639,3 +1705,13 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 600
+
+################################################################################
+## Screen Hud
+################################################################################
+
+screen hud:
+    # Um botão no canto superior esquerdo para abrir o inventário
+    frame:
+        align (0.01, 0.01)
+        textbutton "Inventário" action ShowMenu("inventory_screen")
