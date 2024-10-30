@@ -251,7 +251,8 @@ label continuing3:
  
 
  #Teste de final de jogo...
- jump endgame
+ jump day_2
+
 
 label endgame:
 
