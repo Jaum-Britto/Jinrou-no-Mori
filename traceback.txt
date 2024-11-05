@@ -1,26 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/Day_2.rpy", line 38, in script
+  File "game/story/Day_2.rpy", line 40, in script
     $ sanidade -= 30  # Reduz a sanidade
-  File "game/story/Day_2.rpy", line 38, in <module>
+  File "game/story/Day_2.rpy", line 40, in <module>
     $ sanidade -= 30  # Reduz a sanidade
 NameError: name 'sanidade' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story/Day_2.rpy", line 38, in script
+  File "game/story/Day_2.rpy", line 40, in script
     $ sanidade -= 30  # Reduz a sanidade
   File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/story/Day_2.rpy", line 38, in <module>
+  File "game/story/Day_2.rpy", line 40, in <module>
     $ sanidade -= 30  # Reduz a sanidade
 NameError: name 'sanidade' is not defined
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.2.0.24012702
 Jinrou no Mori demo 0.1
-Wed Oct 30 19:03:27 2024
+Tue Nov  5 20:03:02 2024
