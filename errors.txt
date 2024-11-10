@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/characters_script/MC.rpy", line 4: expected 'word' not found.
-    style.window_background = Frame("gui/a.png", 25, 25)
+File "game/inventario.rpy", line 38: hbox expects a non-empty block.
+    hbox:
          ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Tue Aug 27 18:20:03 2024
+Wed Sep 11 19:31:43 2024

@@ -10,6 +10,8 @@
 # The game starts here.
 
 label start:
+#Teste com Hud para inventario
+ show screen hud
 
  scene scene_black
 
@@ -121,6 +123,11 @@ label start:
  ap "Então, como posso ajudá-la, senhora?"
  "Seus lábios formam um sorriso irônico quando ele diz a última palavra."
 
+ #Teste para adicionar item
+ label after_meeting_apollo:
+    $ add_item(PropTeste)
+    mc "Agora tenho um cachorro-quente no meu inventário."
+
  stop music
 
  #Primeira escolha.
@@ -130,6 +137,11 @@ label start:
       jump dumb
    "O atendimento aqui é incrível, bom senhor":
       jump drama
+#Teste de deletar item
+label some_other_part_of_the_game:
+    $ remove_item(PropTeste)  # Remove o cachorro-quente
+    mc "Eu comi o cachorro-quente."
+
 
 label continuing:
 
@@ -236,10 +248,88 @@ label continuing3:
  "Meus olhos ficam fixados no broxe preso ao avental."
  mc "Então, ainda gosta de palhaços?"
  "Eu olho para o broche de palhaço em seu avental."
+ ap "O que você quer dizer com “ainda”? Tipo, foi uma fase ou algo assim?"
+ mc "Quero dizer, você era bastante obcecado por eles durante o ensino médio."
+ mc "Jardim de infância, ensino fundamental, ensino médio..."
+ ap "..."
+ ap "Você está me fazendo parecer um esquisitão..."
+ mc "Faculdade, seu primeiro emprego..."
+ ap "Ok, ok, ok...já entendi."
+ ap "Quer dizer... qual é, você abandonaria esse carinha?"
+ "Ele aponta para o broche com uma cara suplicante."
+ ap "Como eu poderia deixar esse carinha para trás?"
+ "Ele faz uma cara de súplica apontando para a cara do palhaço."
+ "É um broche meio aleatório, especialmente se levar em conta o resto da roupa toda, mas eu o vejo desde que tinha 5 anos."
+ "Seria difícil jogar fora a esse ponto."
+ "Eu dou uma risadinha."
+ mc "Sim, acho que também não conseguiria jogar no lixo."
+ "Conversamos um pouco sobre assuntos aleatórios, enquanto Apollo fica olhando para aquele homem estranho de antes."
+ "O cara não parece ser um cliente comum..."
+ "Ele está usando muitas camadas para uma noite de outono, além disso está gastando muito tempo escolhendo seus produtos, seu carrinho de compras ainda está bem vazio..."
+ "Ele olhou para nós por cima do ombro, mas não pareceu se incomodar com os olhares constantes de Apollo."
+ "Estou começando a pensar que isso é uma “interação” comum entre esses dois."
  
+ menu:
+   "Perguntar qual é o problema":
+      jump problem
+   "Deixar para lá":
+      jump lookback
 
+ label lookback: #+10% com o Apollo
+
+ "Ugh... eu realmente não preciso perguntar... Ele me diria se quisesse..."
+
+ jump continuing4
+
+ label continuing4:
+
+ "Novamente, não estou desesperada para fazer amizade com aquele homem."
+ "Não vai doer manter distância..."
+ "Você sabe, só para ter certeza."
+ "Um alarme repentino soa embaixo do balcão, interrompendo nosso silêncio."
+ "Apollo olha para seu telefone e sua preocupação parece desaparecer..."
+ ap "Ah! Hora de te expulsar!"
+ mc "Hein?"
+ ap "Chama-se hora de fechar, senhora."
+ "Seu sorriso irônico me pega desprevenida. E essa coisa de “senhora” de novo? Sério?"
+ mc "Acho que o atendimento acaba na hora de fechar também..."
+ ap "Claro. Sou pago para ser legal até as 21h. Depois disso posso ser um merda..."
+ "Nós dois rimos e eu arrumo minhas coisas e me preparo para sair."
+ "Nós não nos falamos muito na faculdade, eu imaginava que ele se tornaria uma pessoa diferente..."
+ "Mas ele parece ser exatamente o mesmo daqueles dias..."
+
+ #Contexto: entrada externa da loja de conveniência (frente da loja - noite)
+
+
+ "Cara, está escuro... Não percebi que passamos tanto tempo conversando. "
+ "Não tinha planejado ficar fora até agora. "
+ "Odeio voltar para casa depois de escurecer..."
+ "Bom, eu não diria que odeio..."
+ "É inconveniente, claro, não consigo enxergar muito bem, mesmo com as luzes da rua, sim..."
+ "Mas, a noite ainda é linda."
+ "Está frio, a brisa noturna sopra as folhas das árvores escuras, tornando toda a estética misteriosa..."
+
+ #Contexto: casa do MC (pequeno estúdio - noite)
+
+
+ "Antes que eu perceba, estou em casa."
+ "Entro na minha casa, lavo as mãos e começo a organizar meu armazenamento."
+
+ #timeskip
+
+ "Não havia muitas coisas para organizar, mas demorei um pouco mesmo assim."
+ "Começou a chover lá fora."
+ "Estou cansado... "
+ "É melhor dormir agora, amanhã terei um dia agitado... "
+ "Provavelmente..."
+ "Tomo um banho e caio na cama, adormecendo logo depois, o som da chuva me guia para um sono profundo."
+
+ #timeskip
+
+ 
  #Teste de final de jogo...
- jump endgame
+ jump day_2
+
 
 label endgame:
 

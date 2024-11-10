@@ -1705,3 +1705,13 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 600
+
+################################################################################
+## Screen Hud
+################################################################################
+
+screen hud:
+    # Um botão no canto superior esquerdo para abrir o inventário
+    frame:
+        align (0.01, 0.01)
+        textbutton "Inventário" action ShowMenu("inventory_screen")
