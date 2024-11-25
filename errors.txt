@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/inventario.rpy", line 38: hbox expects a non-empty block.
-    hbox:
-         ^
+File "game/choices_script/choice_2.rpy", line 5: expected statement.
+    Hpunch
+          ^
+
+File "game/choices_script/choice_2.rpy", line 6: expected statement.
+    Vpunch
+          ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Wed Sep 11 19:31:43 2024
+Mon Nov 25 03:47:50 2024

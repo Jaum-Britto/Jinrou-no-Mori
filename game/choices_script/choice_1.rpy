@@ -1,10 +1,9 @@
 label dumb:
 
- play music "audio/657265__ho52nest__wellcome-supermarket-background-music.ogg"volume 50
+ #play music "audio/657265__ho52nest__wellcome-supermarket-background-music.ogg"volume 50
 
- show scene_4
- show scene_3
- show AP1
+ show Loja_1
+ show AP10
 
  ap "Pelo menos estou tentando recuperar o tempo perdido..."
  "Ele pareceu ficar um pouco irritado, mas fez de brincadeira..."
@@ -15,11 +14,10 @@ label dumb:
 
 label drama:
 
- play music "audio/657265__ho52nest__wellcome-supermarket-background-music.ogg"volume 50
+ #play music "audio/657265__ho52nest__wellcome-supermarket-background-music.ogg"volume 50
 
- show scene_4
- show scene_3
- show AP1
+ show Loja_1
+ show AP6
 
  ap "Obrigado, minha senhora."
  "Ele se curva dramaticamente para mim antes de começarmos a rir..."

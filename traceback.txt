@@ -1,26 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/Day_2.rpy", line 38, in script
-    $ sanidade -= 30  # Reduz a sanidade
-  File "game/story/Day_2.rpy", line 38, in <module>
-    $ sanidade -= 30  # Reduz a sanidade
-NameError: name 'sanidade' is not defined
+  File "game/script.rpy", line 353, in script
+    jump Timeskip
+ScriptError: could not find label 'Timeskip'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story/Day_2.rpy", line 38, in script
-    $ sanidade -= 30  # Reduz a sanidade
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/story/Day_2.rpy", line 38, in <module>
-    $ sanidade -= 30  # Reduz a sanidade
-NameError: name 'sanidade' is not defined
+  File "game/script.rpy", line 353, in script
+    jump Timeskip
+  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\ast.py", line 1698, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\joker\Downloads\VN Project\YandereGame\Engines\renpy-8.2.0-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'Timeskip'.
 
-Windows-10-10.0.22621 AMD64
+Windows-10-10.0.19041 AMD64
 Ren'Py 8.2.0.24012702
 Jinrou no Mori demo 0.1
-Wed Oct 30 19:03:27 2024
+Mon Nov 25 03:17:34 2024

@@ -3,9 +3,20 @@ label problem:
  mc "Ei... hum... tem alguma coisa te incomodando?"
  "Olho para o homem com desconfiança. "
  "Apollo geralmente é bem tranquilo, deve haver algo acontecendo aqui se ele está agindo tão estranho."
+ 
+ show AP12
+ with dissolve
+ 
  ap "..."
  "Os olhos de Apollo mudam entre mim e a porta."
  "O estranho saiu da loja."
+
+ hide AP12
+ with dissolve
+
+ show AP9
+ with dissolve
+
  ap "Já trabalho aqui há algum tempo, mas quase nunca o via..."
  ap "Ele só.. ah não sei... tem algo estranho sobre ele..."
  ap "..."
