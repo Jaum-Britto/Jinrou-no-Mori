@@ -177,9 +177,9 @@ label start:
  "Seus lábios formam um sorriso irônico quando ele diz a última palavra."
 
  #Teste para adicionar item
- #label after_meeting_apollo:
-   # $ add_item(PropTeste)
-   # mc "Agora tenho um cachorro-quente no meu inventário."
+ label after_meeting_apollo:
+   $ add_item(PropTeste)
+   mc "Agora tenho um cachorro-quente no meu inventário."
 
  #stop music
 
@@ -282,7 +282,7 @@ label continuing:
  show AP12
  with dissolve
 
- stop music
+ #stop music
 
  "Antes que eu possa me virar, vejo a expressão brincalhona de Apollo se transformar em uma expressão preocupada..."
  
@@ -557,6 +557,10 @@ label continuing3:
  "Nós não nos falamos muito na faculdade, eu imaginava que ele se tornaria uma pessoa diferente..."
  "Mas ele parece ser exatamente o mesmo daqueles dias..."
 
+ stop music
+
+ play music "audio/ambience-wind-blowing-through-trees-01-186986.mp3"volume 50
+
  hide AP7
  with dissolve
 
@@ -574,6 +578,8 @@ label continuing3:
 
  #Contexto: casa do MC (pequeno estúdio - noite)
 
+ stop music
+
  show Casa_4
 
  "Antes que eu perceba, estou em casa."
@@ -582,11 +588,24 @@ label continuing3:
  #timeskip
 
  "Não havia muitas coisas para organizar, mas demorei um pouco mesmo assim."
+
+ play music "audio/chuva-1-119168.mp3"volume 50
+
  "Começou a chover lá fora."
  "Estou cansado... "
  "É melhor dormir agora, amanhã terei um dia agitado... "
  "Provavelmente..."
  "Tomo um banho e caio na cama, adormecendo logo depois, o som da chuva me guia para um sono profundo."
+
+ stop music
+ hide Casa_4
+ hide Casa_12
+ hide Loja_1
+ hide Loja_2
+ hide Casa_10
+ hide Casa_5
+ hide scene_black
+ hide AP9
 
  #timeskip
 
@@ -597,12 +616,10 @@ label continuing3:
 
 label endgame:
 
- window hide dissolve
-
- pause 1.0
+ play music "audio/soundtrack/floresta.ogg"volume 5
 
  show scene_credits
 
- $ renpy.pause(4.0)
+ $ renpy.pause(10.0)
 
 return

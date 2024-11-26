@@ -32,7 +32,7 @@ init python:
     # Função que define a descrição do item atual
     def show_item_description(item):
         global current_item_description
-        current_item_description = f"Este é o {item.name}. {item.description}"
+        current_item_description = f"{item.description}"
         # Função para resetar a descrição do item
     def reset_item_description():
         global current_item_description
@@ -42,8 +42,8 @@ init python:
 
 # Exemplo de itens com nome, descrição, quantidade e imagem
 default PropTeste = Item(
-    name="Mascote_Renpy", 
-    description="Mas o que é isso?", 
+    name="Cachorro Quente", 
+    description="Cachorro Quente (Pão com salcisha e vários complementos)", 
     quantity=1
 )
 

@@ -2,6 +2,7 @@
 
 #Cena extra - fundo geral do jogo
 image scene_black = "Background_Black.png"
+image scene_credits = "creditos.png"
 
 #Max Cgs
 image CGS_1 = "hallucinations_home.webp"
@@ -46,7 +47,7 @@ image Loja_2 = "middle_convenience store_max_cg.png"
 #DAY 2
 
 #Transição
-image scene_endday2 = "SpecialFullScreen_Day2.png"
+image scene_day2 = "SpecialFullScreen_Day2.png"
 
 #Casa do Max - Sala de visitas
 image Visitas_1 = "max_guestroom_1_details_day.png"
@@ -54,6 +55,10 @@ image Visitas_2 = "max_guestroom_1_details_night.png"
 
 #Casa do Max - Dentro do closet
 image Closet_1 = "max_guestroom_1_details_night.png"
+
+#Coelho morto
+#image Dead_1 = "kitchen_mc_morning_bunny.png.png"
+#image Dead_2 = "kitchen_mc_night_bunny.png"
 
 #End Label/Credits
 #image scene_credits = "endcredits5.png"
