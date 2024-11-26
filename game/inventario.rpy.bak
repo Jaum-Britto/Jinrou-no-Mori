@@ -56,5 +56,5 @@ label open_inventory:
 # Exemplo de uso do inventário
 label start_inventario:
     # Abre o inventário
-    call open_inventory from _call_open_inventory
+    call open_inventory
     return

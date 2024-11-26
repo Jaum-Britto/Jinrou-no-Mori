@@ -618,6 +618,8 @@ label endgame:
 
  play music "audio/soundtrack/floresta.ogg"volume 5
 
+ window hide dissolve
+
  show scene_credits
 
  $ renpy.pause(10.0)
