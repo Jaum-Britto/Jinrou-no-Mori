@@ -25,19 +25,22 @@ label start:
 
  #o script acaba aqui....
 
+ #isso para a música
  stop music
 
  play music "audio/119402__kyster__nice-forrest-ambience.ogg"volume 50
 
+ #isso mostra a cena
  scene Casa_5
  with dissolve
  
-
  mc "Mais um dia de trabalho terminou. Finalmente, um pouco de descanso..."
  mc "Pelo menos até o próximo projeto..."
 
+ #isso esconde a cena e sprites
  hide Casa_5
 
+ #pode ser usado também para mostrar cenas e sprites
  show scene_black
 
  "Entro em contato com o cliente para mostrar o projeto finalizado..."
@@ -69,7 +72,8 @@ label start:
  with dissolve
 
  stop music
-
+ 
+ #isso toca a musica
  play music "audio/657265__ho52nest__wellcome-supermarket-background-music.ogg"volume 50
 
  show Loja_2
@@ -93,6 +97,7 @@ label start:
  show AP4
  with dissolve
 
+ #povname é a definição da variável de escolha de nome
  ap "[povname]! Faz muito tempo que não te vejo, né?"
 
  hide AP4
@@ -344,7 +349,7 @@ label continuing:
  "Não vi nenhum problema com esse homem, inicialmente."
  "Claro que ele não é alguém com quem eu estaria implorando para conversar, mas agora estou bastante curioso..."
  "Eles têm algum drama mal resolvido ou algo assim?"
- "De qualquer forma, preciso fazer algumas coisas aqui, não há tempo a perder..."
+ "De qualquer forma, preciso fazer algumas coisas aqui, não tenho tempo a perder..."
  "Se for importante, provavelmente descobrirei..."
 
  show Loja_2
@@ -451,7 +456,7 @@ label continuing3:
  "Eu pensei que teríamos mais coisas pra conversar depois de tanto tempo separados, mas acho que nenhum de nós consegue pensar em um assunto..."
  "Eu discretamente o examino dos pés a cabeça."
  "Pensando bem, o Apollo não parece ter mudado nada desde o ensino médio, seu rosto, seu senso de humor, tudo parece igual..."
- "Meus olhos ficam fixados no broxe preso ao avental."
+ "Meus olhos ficam fixados no broche preso ao seu avental."
 
  hide AP10
  with dissolve
@@ -517,6 +522,7 @@ label continuing3:
  "Ele olhou para nós por cima do ombro, mas não pareceu se incomodar com os olhares constantes de Apollo."
  "Estou começando a pensar que isso é uma “interação” comum entre esses dois."
  
+ #terceira escolha
  menu:
    "Perguntar qual é o problema":
       jump problem
@@ -531,7 +537,7 @@ label continuing3:
 
  label continuing4:
 
- "Novamente, não estou desesperada para fazer amizade com aquele homem."
+ "Novamente, não estou desesperado para fazer amizade com aquele homem."
  "Não vai doer manter distância..."
  "Você sabe, só para ter certeza."
  "Um alarme repentino soa embaixo do balcão, interrompendo nosso silêncio."
@@ -613,7 +619,7 @@ label continuing3:
  #Teste de final de jogo...
  jump day_2
 
-
+ #Label de créditos - final de jogo
 label endgame:
 
  play music "audio/soundtrack/floresta.ogg"volume 5

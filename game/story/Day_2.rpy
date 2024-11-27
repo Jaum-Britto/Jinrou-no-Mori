@@ -99,7 +99,7 @@ label avoid_kitchen:
 label visit_apollo:
     # Visita de Apollo após o incidente
     show Casa_11
-    "Você está prestes a sair de casa quando ouve uma batida na porta."
+    "Você está prestes a sair de casa quando ouve alguém se aproximando da porta."
     show AP4
     ap "Ah... eu estava prestes a bater..."
     hide AP4
