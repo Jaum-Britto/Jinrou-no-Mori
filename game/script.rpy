@@ -134,6 +134,7 @@ label start:
 
  menu:
    "Você é tão idiota":
+      $ sanidade -= 20
       jump dumb
    "O atendimento aqui é incrível, bom senhor":
       jump drama

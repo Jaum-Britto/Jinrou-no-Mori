@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/inventario.rpy", line 38: hbox expects a non-empty block.
-    hbox:
-         ^
+File "game/story/Day_2.rpy", line 46: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Wed Sep 11 19:31:43 2024
+Thu Nov 28 18:18:06 2024

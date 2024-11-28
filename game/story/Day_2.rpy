@@ -41,6 +41,9 @@ label investigate_noise:
             jump day_2_continue
         "Voltar para o quarto e trancar a porta.":
             jump go_back_to_bed
+        "Mini-game (temporario)":
+            jump mini_game
+            return
 
 label go_back_to_bed:
     "Você decide que é melhor voltar para o quarto. Tranca a porta e tenta se acalmar."
