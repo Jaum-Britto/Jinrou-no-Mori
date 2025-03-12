@@ -1,39 +1,59 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/Minigame.rpy", line 129, in script
-    call screen memory_mini_game
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/Minigame.rpy", line 95, in execute
-    screen memory_mini_game:
-  File "game/Minigame.rpy", line 95, in execute
-    screen memory_mini_game:
-  File "game/Minigame.rpy", line 97, in execute
-    grid int(card_amount / card_rows) card_rows:
-  File "game/Minigame.rpy", line 101, in execute
-    for i, card in enumerate(cards):
-  File "game/Minigame.rpy", line 102, in execute
-    if preview_mode:
-  File "game/Minigame.rpy", line 102, in <module>
-    if preview_mode:
-NameError: name 'preview_mode' is not defined
+  File "game/screens.rpy", line 825, in execute
+    screen preferences():
+  File "game/screens.rpy", line 825, in execute
+    screen preferences():
+  File "game/screens.rpy", line 829, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 513, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
+  File "game/screens.rpy", line 513, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
+  File "game/screens.rpy", line 522, in execute
+    frame:
+  File "game/screens.rpy", line 525, in execute
+    hbox:
+  File "game/screens.rpy", line 531, in execute
+    frame:
+  File "game/screens.rpy", line 534, in execute
+    if scroll == "viewport":
+  File "game/screens.rpy", line 536, in execute
+    viewport:
+  File "game/screens.rpy", line 545, in execute
+    vbox:
+  File "game/screens.rpy", line 548, in execute
+    transclude
+  File "game/screens.rpy", line 829, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 831, in execute
+    vbox:
+  File "game/screens.rpy", line 833, in execute
+    hbox:
+  File "game/screens.rpy", line 851, in execute
+    vbox:
+  File "game/screens.rpy", line 854, in execute
+    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
+  File "game/screens.rpy", line 854, in keywords
+    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
+  File "game/screens.rpy", line 854, in <module>
+    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
+AttributeError: module 'renpy.exports' has no attribute 'restart'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/Minigame.rpy", line 129, in script
-    call screen memory_mini_game
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 1968, in execute
-    self.call("execute")
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 1950, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\statements.py", line 349, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\exports.py", line 3413, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
+    python hide:
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
+    python hide:
+  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
+    ui.interact()
   File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\core.py", line 2165, in interact
@@ -54,21 +74,47 @@ Full traceback:
     self.update()
   File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\screen.py", line 697, in update
     self.screen.function(**self.scope)
-  File "game/Minigame.rpy", line 95, in execute
-    screen memory_mini_game:
-  File "game/Minigame.rpy", line 95, in execute
-    screen memory_mini_game:
-  File "game/Minigame.rpy", line 97, in execute
-    grid int(card_amount / card_rows) card_rows:
-  File "game/Minigame.rpy", line 101, in execute
-    for i, card in enumerate(cards):
-  File "game/Minigame.rpy", line 102, in execute
-    if preview_mode:
-  File "game/Minigame.rpy", line 102, in <module>
-    if preview_mode:
-NameError: name 'preview_mode' is not defined
+  File "game/screens.rpy", line 825, in execute
+    screen preferences():
+  File "game/screens.rpy", line 825, in execute
+    screen preferences():
+  File "game/screens.rpy", line 829, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 513, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
+  File "game/screens.rpy", line 513, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
+  File "game/screens.rpy", line 522, in execute
+    frame:
+  File "game/screens.rpy", line 525, in execute
+    hbox:
+  File "game/screens.rpy", line 531, in execute
+    frame:
+  File "game/screens.rpy", line 534, in execute
+    if scroll == "viewport":
+  File "game/screens.rpy", line 536, in execute
+    viewport:
+  File "game/screens.rpy", line 545, in execute
+    vbox:
+  File "game/screens.rpy", line 548, in execute
+    transclude
+  File "game/screens.rpy", line 829, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 831, in execute
+    vbox:
+  File "game/screens.rpy", line 833, in execute
+    hbox:
+  File "game/screens.rpy", line 851, in execute
+    vbox:
+  File "game/screens.rpy", line 854, in execute
+    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
+  File "game/screens.rpy", line 854, in keywords
+    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
+  File "game/screens.rpy", line 854, in <module>
+    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
+AttributeError: module 'renpy.exports' has no attribute 'restart'
 
-Windows-10-10.0.22621 AMD64
+Windows-10-10.0.26100 AMD64
 Ren'Py 8.2.0.24012702
 Jinrou no Mori demo 0.1
-Thu Nov 28 18:43:30 2024
+Wed Mar 12 18:05:06 2025

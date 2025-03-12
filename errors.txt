@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/story/Day_2.rpy", line 46: Indentation mismatch.
+File "game/options.rpy", line 212: invalid syntax
+    define config.language = persistent.language if persistent.language else None
+            ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Thu Nov 28 18:18:06 2024
+Wed Mar 12 18:12:51 2025
