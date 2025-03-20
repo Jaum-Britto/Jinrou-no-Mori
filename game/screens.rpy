@@ -851,7 +851,7 @@ screen preferences():
                 vbox:
                     style_prefix "check"
                     label _("Languages")
-                    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.full_restart)]
+                    textbutton _("Português") action [SetVariable("persistent.language", "Portugues"), SetVariable("config.language", "Portugues"), Function(renpy.full_restart)]
                     textbutton _("English") action [SetVariable("persistent.language", "English"), SetVariable("config.language", "English"), Function(renpy.full_restart)]
 
 

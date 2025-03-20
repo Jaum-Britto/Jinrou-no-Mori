@@ -213,4 +213,4 @@ init python:
     if persistent.language:
         config.language = persistent.language
     else:
-        config.language = None
+        config.language = "Portugues"

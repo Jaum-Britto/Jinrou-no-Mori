@@ -1,120 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/screens.rpy", line 825, in execute
-    screen preferences():
-  File "game/screens.rpy", line 825, in execute
-    screen preferences():
-  File "game/screens.rpy", line 829, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 513, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 513, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 522, in execute
-    frame:
-  File "game/screens.rpy", line 525, in execute
-    hbox:
-  File "game/screens.rpy", line 531, in execute
-    frame:
-  File "game/screens.rpy", line 534, in execute
-    if scroll == "viewport":
-  File "game/screens.rpy", line 536, in execute
-    viewport:
-  File "game/screens.rpy", line 545, in execute
-    vbox:
-  File "game/screens.rpy", line 548, in execute
-    transclude
-  File "game/screens.rpy", line 829, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 831, in execute
-    vbox:
-  File "game/screens.rpy", line 833, in execute
-    hbox:
-  File "game/screens.rpy", line 851, in execute
-    vbox:
-  File "game/screens.rpy", line 854, in execute
-    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
-  File "game/screens.rpy", line 854, in keywords
-    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
-  File "game/screens.rpy", line 854, in <module>
-    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
-AttributeError: module 'renpy.exports' has no attribute 'restart'
+  File "game/options.rpy", line 212, in script
+    init python:
+  File "game/options.rpy", line 213, in <module>
+    if "language" in persistent:
+TypeError: argument of type 'Persistent' is not iterable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
+  File "game/options.rpy", line 212, in script
+    init python:
+  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\ast.py", line 834, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\python.py", line 1187, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
-    python hide:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
-    ui.interact()
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\core.py", line 2165, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\core.py", line 2683, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\displayable.py", line 431, in visit_all
-    d.visit_all(callback, seen)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\screen.py", line 480, in visit_all
-    callback(self)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\core.py", line 2683, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\screen.py", line 491, in per_interact
-    self.update()
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\display\screen.py", line 697, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 825, in execute
-    screen preferences():
-  File "game/screens.rpy", line 825, in execute
-    screen preferences():
-  File "game/screens.rpy", line 829, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 513, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 513, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
-  File "game/screens.rpy", line 522, in execute
-    frame:
-  File "game/screens.rpy", line 525, in execute
-    hbox:
-  File "game/screens.rpy", line 531, in execute
-    frame:
-  File "game/screens.rpy", line 534, in execute
-    if scroll == "viewport":
-  File "game/screens.rpy", line 536, in execute
-    viewport:
-  File "game/screens.rpy", line 545, in execute
-    vbox:
-  File "game/screens.rpy", line 548, in execute
-    transclude
-  File "game/screens.rpy", line 829, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 831, in execute
-    vbox:
-  File "game/screens.rpy", line 833, in execute
-    hbox:
-  File "game/screens.rpy", line 851, in execute
-    vbox:
-  File "game/screens.rpy", line 854, in execute
-    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
-  File "game/screens.rpy", line 854, in keywords
-    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
-  File "game/screens.rpy", line 854, in <module>
-    textbutton _("Português") action [SetVariable("persistent.language", None), SetVariable("config.language", None), Function(renpy.restart)]
-AttributeError: module 'renpy.exports' has no attribute 'restart'
+  File "game/options.rpy", line 213, in <module>
+    if "language" in persistent:
+TypeError: argument of type 'Persistent' is not iterable
 
-Windows-10-10.0.26100 AMD64
-Ren'Py 8.2.0.24012702
+Windows-10-10.0.19041 AMD64
+Ren'Py 8.3.7.25031702
 Jinrou no Mori demo 0.1
-Wed Mar 12 18:05:06 2025
+Thu Mar 20 12:23:54 2025
