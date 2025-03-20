@@ -210,7 +210,8 @@ init python:
 # define build.itch_project = "renpytom/test-project"
 # configuração de idiomas:
 init python:
+    
     if persistent.language:
         config.language = persistent.language
     else:
-        config.language = "Portugues"
+        config.language = None

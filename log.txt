@@ -1,37 +1,20 @@
-2025-03-20 16:03:02 UTC
+2025-03-20 16:24:24 UTC
 Windows-10-10.0.19041
 Ren'Py 8.3.7.25031702
 
-Early init took 0.25s
+Early init took 0.22s
 Loading error handling took 0.08s
-Loading script took 1.75s
-Loading save slot metadata took 0.15s
+Loading script took 0.99s
+Loading save slot metadata took 0.16s
 Loading persistent took 0.00s
-Running init code took 0.26s
-Loading analysis data took 0.04s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.09s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\dvice\\AppData\\Roaming/RenPy/backups\\Jinrou-no-Mori':
-Dump and make backups took 0.27s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.25s
+
+File "game/options.rpy", line 213: invalid syntax
+    default persistent.language = None
+             ^
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.01s
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.15s
-Save screen analysis took 0.17s
-Prepare screens took 0.44s
-Save pyanalysis. took 0.08s
-Save bytecode. took 0.11s
-Running _start took 0.00s
-Interface start took 1.75s
+Interface start took 0.74s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1600, 900)
@@ -43,66 +26,3 @@ Version: b'3.1.0 - Build 9.17.10.4459'
 Display Info: None
 Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
 Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 470.13s
-Loading error handling took 0.05s
-Loading script took 0.53s
-Loading save slot metadata took 0.07s
-Loading persistent took 0.00s
-Running init code took 0.11s
-Loading analysis data took 0.04s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.06s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\dvice\\AppData\\Roaming/RenPy/backups\\Jinrou-no-Mori':
-Dump and make backups took 0.19s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.20s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.06s
-Save screen analysis took 0.08s
-Prepare screens took 0.29s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.05s
-Running _start took 0.00s
-Interface start took 1.58s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1600, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) HD Graphics 3000'
-Version: b'3.1.0 - Build 9.17.10.4459'
-Display Info: None
-Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
-Maximum texture size: 4096x4096
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.01s
-Load screen analysis took 0.07s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.02s
-Load screen analysis took 0.06s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.03s
-Load screen analysis took 0.06s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
