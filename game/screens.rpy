@@ -827,7 +827,16 @@ screen preferences():
     tag menu
 
     use game_menu(_("Preferences"), scroll="viewport"):
+        
+        vbox:
+            xalign 0.0  # Alinha à esquerda
+            yalign 0.0  # Posiciona no topo
+            spacing 10
 
+            textbutton _( "Voltar"):
+                action Return()
+                style "return_button"        
+                
         vbox:
 
             hbox:
@@ -851,9 +860,8 @@ screen preferences():
                 vbox:
                     style_prefix "check"
                     label _("Languages")
-                    textbutton _("Português") action [SetVariable("persistent.language", "Portugues"), SetVariable("config.language", "Portugues"), Function(renpy.full_restart)]
-                    textbutton _("English") action [SetVariable("persistent.language", "English"), SetVariable("config.language", "English"), Function(renpy.full_restart)]
-
+                    textbutton _("Português") action Confirm(_("Tem certeza que deseja mudar o idioma?"), [SetVariable("persistent.language", "Portugues"), SetVariable("config.language", "Portugues"), Function(renpy.full_restart)])
+                    textbutton _("English") action Confirm(_("Are you sure you want to change the language?"), [SetVariable("persistent.language", "English"), SetVariable("config.language", "English"), Function(renpy.full_restart)])
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
@@ -1261,11 +1269,13 @@ screen confirm(message, yes_action, no_action):
         vbox:
             xalign .5
             yalign .5
-            spacing 30
+            spacing 40
 
             label _(message):
                 style "confirm_prompt"
                 xalign 0.5
+                
+                
 
             hbox:
                 xalign 0.5
@@ -1289,10 +1299,14 @@ style confirm_frame:
     padding gui.confirm_frame_borders.padding
     xalign .5
     yalign .5
+     
 
 style confirm_prompt_text:
-    textalign 0.5
+    text_align 0.5
     layout "subtitle"
+    color "#000"
+    size 25
+    min_width 600    
 
 style confirm_button:
     properties gui.button_properties("confirm_button")

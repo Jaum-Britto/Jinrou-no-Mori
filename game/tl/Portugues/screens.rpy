@@ -52,11 +52,11 @@ translate Portugues strings:
 
     # game/screens.rpy:657
     old "Version [config.version!t]\n"
-    new ""
+    new "Versão [config.version!t]\n"
 
     # game/screens.rpy:663
     old "{p}Visual novel made with {a=https://www.renpy.org/}Ren'Py{/a} 8.2.0{p} {p}Programmed by Hide and DokiDokiSame{p} {p}Art Direction by DokiDokiSame{p} {p}MasoDevsTeam hopes you like the game ;){p}"
-    new ""
+    new "{p}Visual novel feita com {a=https://www.renpy.org/}Ren'Py{/a} 8.2.0{p} {p}Programado por Hide e DokiDokiSame{p} {p}Diertora de Arte DokiDokiSame{p} {p}A equipe MasoDevs espera que você goste do jogo ;){p}"
 
     # game/screens.rpy:694
     old "Load"
@@ -76,7 +76,7 @@ translate Portugues strings:
 
     # game/screens.rpy:741
     old "{#file_time}%A, %B %d %Y, %H:%M"
-    new ""
+    new "{#file_time}%A, %B %d %Y, %H:%M"
 
     # game/screens.rpy:741
     old "empty slot"
@@ -88,23 +88,23 @@ translate Portugues strings:
 
     # game/screens.rpy:764
     old "{#auto_page}A"
-    new ""
+    new "{#auto_page}A"
 
     # game/screens.rpy:767
     old "{#quick_page}Q"
-    new ""
+    new "{#quick_page}Q"
 
     # game/screens.rpy:773
     old ">"
-    new ""
+    new ">"
 
     # game/screens.rpy:777
     old "Upload Sync"
-    new ""
+    new "Sincronizar envio"
 
     # game/screens.rpy:781
     old "Download Sync"
-    new ""
+    new "Baixar sincronização"
 
     # game/screens.rpy:829
     old "Preferences"
@@ -216,7 +216,7 @@ translate Portugues strings:
 
     # game/screens.rpy:1121
     old "Navigate the interface."
-    new ""
+    new "Navegação de interface"
 
     # game/screens.rpy:1124
     old "Escape"
@@ -224,99 +224,99 @@ translate Portugues strings:
 
     # game/screens.rpy:1125
     old "Accesses the game menu."
-    new ""
+    new "Acessar o menu do jogo"
 
     # game/screens.rpy:1128
     old "Ctrl"
-    new ""
+    new "Ctrl"
 
     # game/screens.rpy:1129
     old "Skips dialogue while held down."
-    new ""
+    new "Pula dialogos quando precionado"
 
     # game/screens.rpy:1132
     old "Tab"
-    new ""
+    new "Tab"
 
     # game/screens.rpy:1133
     old "Toggles dialogue skipping."
-    new ""
+    new "Habilitar pular dialogos"
 
     # game/screens.rpy:1136
     old "Page Up"
-    new ""
+    new "Subir Página"
 
     # game/screens.rpy:1137
     old "Rolls back to earlier dialogue."
-    new ""
+    new "Retroceder para o dialogo anterior"
 
     # game/screens.rpy:1140
     old "Page Down"
-    new ""
+    new "Descer Página"
 
     # game/screens.rpy:1141
     old "Rolls forward to later dialogue."
-    new ""
+    new "Avançar para o ultimo dialogo"
 
     # game/screens.rpy:1145
     old "Hides the user interface."
-    new ""
+    new "Esconde a interface do usuário"
 
     # game/screens.rpy:1149
     old "Takes a screenshot."
-    new ""
+    new "Captura de TelA"
 
     # game/screens.rpy:1153
     old "Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}."
-    new ""
+    new "Habilita assostencia {a=https://www.renpy.org/l/voicing}self-voicing{/a}"
 
     # game/screens.rpy:1157
     old "Opens the accessibility menu."
-    new ""
+    new "Abre o menu de acessibilidade"
 
     # game/screens.rpy:1163
     old "Left Click"
-    new ""
+    new "Clique esquerdo"
 
     # game/screens.rpy:1167
     old "Middle Click"
-    new ""
+    new "Clique do meio"
 
     # game/screens.rpy:1171
     old "Right Click"
-    new ""
+    new "Clique direito"
 
     # game/screens.rpy:1175
     old "Mouse Wheel Up"
-    new ""
+    new "Roda do mouse para cima"
 
     # game/screens.rpy:1179
     old "Mouse Wheel Down"
-    new ""
+    new "Roda do mouse para baixo"
 
     # game/screens.rpy:1186
     old "Right Trigger\nA/Bottom Button"
-    new ""
+    new "Gatilho direito\nA/Bottom Button"
 
     # game/screens.rpy:1190
     old "Left Trigger\nLeft Shoulder"
-    new ""
+    new "Gatilho esquerdo\nLeft Shoulder"
 
     # game/screens.rpy:1194
     old "Right Shoulder"
-    new ""
+    new "Botão superior direito"
 
     # game/screens.rpy:1198
     old "D-Pad, Sticks"
-    new ""
+    new "D-Pad, Sticks"
 
     # game/screens.rpy:1202
     old "Start, Guide, B/Right Button"
-    new ""
+    new "Inicio, Guia, B/Right Button"
 
     # game/screens.rpy:1206
     old "Y/Top Button"
-    new ""
+    new "Y/Top Button"
 
     # game/screens.rpy:1209
     old "Calibrate"

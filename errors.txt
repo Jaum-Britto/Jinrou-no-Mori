@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 213: invalid syntax
-    default persistent.language = None
-             ^
+File "game/screens.rpy", line 969: end of line expected.
+    style return_button_text is gui_button_text,
+                                               ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Thu Mar 20 13:24:25 2025
+Fri Mar 21 14:03:16 2025
