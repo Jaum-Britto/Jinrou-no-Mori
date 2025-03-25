@@ -338,3 +338,19 @@ translate Portugues strings:
     old "Menu"
     new "Menu"
 
+# TODO: Translation updated at 2025-03-25 17:22
+
+translate Portugues strings:
+
+    # game/screens.rpy:836
+    old "Voltar"
+    new "Voltar"
+
+    # game/screens.rpy:863
+    old "Tem certeza que deseja mudar o idioma?"
+    new "Tem certeza que deseja mudar o idioma?"
+
+    # game/screens.rpy:864
+    old "Are you sure you want to change the language?"
+    new "Are you sure you want to change the language?"
+

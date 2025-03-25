@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/story/Rota_Apolo.rpy", line 1: invalid syntax
-    = 0
-     ^
+File "game/tl/Portugues/common.rpy", line 4: Unexpected indentation at start of file.
 
-Ren'Py Version: Ren'Py 8.2.0.24012702
-Tue Mar 25 14:56:50 2025
+Ren'Py Version: Ren'Py 8.3.7.25031702
+Tue Mar 25 17:54:26 2025

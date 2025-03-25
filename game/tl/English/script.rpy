@@ -604,67 +604,64 @@ translate English strings:
 
     # game/script.rpy:135
     old "Você é tão idiota"
-    new ""
+    new "You are so dumb!"
 
-    # game/script.rpy:135
+# game/script.rpy:135
     old "O atendimento aqui é incrível, bom senhor"
-    new ""
+    new "The service here is amazing, good sir"
 
-    # game/script.rpy:223
+# game/script.rpy:223
     old "Corredor da esquerda(Artigos de jardinagem)"
-    new ""
+    new "Left aisle (Gardening items)"
 
-    # game/script.rpy:223
+# game/script.rpy:223
     old "Corredor da direita(Fast food)"
-    new ""
-
-# TODO: Translation updated at 2025-03-25 15:38
+    new "Right aisle (Fast food)"
 
 # game/script.rpy:188
 translate English continuing_2402211d:
 
     # "Ele não parecia muito contente com a presença desse cara."
-    "Ele não parecia muito contente com a presença desse cara."
+    "He didn't seem very happy with this guy's presence."
 
 # game/script.rpy:189
 translate English continuing_40ba4a38:
 
     # ap "Não."
-    ap "Não."
+    ap "No."
 
 # game/script.rpy:190
 translate English continuing_7f2f9382:
 
     # "Estranho..."
-    "Estranho..."
+    "Weird..."
 
 # game/script.rpy:191
 translate English continuing_75e8cd4b:
 
     # "Muito, mas muito estranho mesmo..."
-    "Muito, mas muito estranho mesmo..."
+    "Very, very weird indeed..."
 
 # game/script.rpy:192
 translate English continuing_4e201929:
 
     # "Eu me viro para sair, sentindo essa tensão estranha crescer..."
-    "Eu me viro para sair, sentindo essa tensão estranha crescer..."
+    "I turn to leave, feeling this strange tension growing..."
 
 # game/script.rpy:193
 translate English continuing_d004a210:
 
     # "De repente, Apolo me puxa pelo ombro, me fazendo encará-lo."
-    "De repente, Apolo me puxa pelo ombro, me fazendo encará-lo."
+    "Suddenly, Apollo pulls me by the shoulder, making me face him."
 
 # game/script.rpy:194
 translate English continuing_439d35ca:
 
     # ap "Só...só...tome cuidado, ok?"
-    ap "Só...só...tome cuidado, ok?"
+    ap "Just... just... be careful, okay?"
 
 # game/script.rpy:195
 translate English continuing_83833696:
 
     # "Nosso clima lúdico desapareceu completamente agora..."
-    "Nosso clima lúdico desapareceu completamente agora..."
-
+    "Our playful mood has completely disappeared now..."

@@ -4,5 +4,5 @@ translate Portugues strings:
 
     # game/options.rpy:15
     old "Jinrou no Mori"
-    new ""
+    new "Jinrou no Mori"
 
