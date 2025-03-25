@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 969: end of line expected.
-    style return_button_text is gui_button_text,
-                                               ^
+File "game/story/Rota_Apolo.rpy", line 1: invalid syntax
+    = 0
+     ^
 
-Ren'Py Version: Ren'Py 8.3.7.25031702
-Fri Mar 21 14:03:16 2025
+Ren'Py Version: Ren'Py 8.2.0.24012702
+Tue Mar 25 14:56:50 2025

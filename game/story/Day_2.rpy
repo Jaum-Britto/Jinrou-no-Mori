@@ -128,7 +128,7 @@ label apollo_concern:
 
 label go_to_apollo_house:
     "Você decide ir para a casa de Apollo, tentando se sentir mais seguro."
-    # Continuação...
+    jump apollo_route
 
 label stay_home:
     "Você decide ficar em casa, mesmo com a preocupação crescente."

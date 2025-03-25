@@ -618,3 +618,53 @@ translate English strings:
     old "Corredor da direita(Fast food)"
     new ""
 
+# TODO: Translation updated at 2025-03-25 15:38
+
+# game/script.rpy:188
+translate English continuing_2402211d:
+
+    # "Ele não parecia muito contente com a presença desse cara."
+    "Ele não parecia muito contente com a presença desse cara."
+
+# game/script.rpy:189
+translate English continuing_40ba4a38:
+
+    # ap "Não."
+    ap "Não."
+
+# game/script.rpy:190
+translate English continuing_7f2f9382:
+
+    # "Estranho..."
+    "Estranho..."
+
+# game/script.rpy:191
+translate English continuing_75e8cd4b:
+
+    # "Muito, mas muito estranho mesmo..."
+    "Muito, mas muito estranho mesmo..."
+
+# game/script.rpy:192
+translate English continuing_4e201929:
+
+    # "Eu me viro para sair, sentindo essa tensão estranha crescer..."
+    "Eu me viro para sair, sentindo essa tensão estranha crescer..."
+
+# game/script.rpy:193
+translate English continuing_d004a210:
+
+    # "De repente, Apolo me puxa pelo ombro, me fazendo encará-lo."
+    "De repente, Apolo me puxa pelo ombro, me fazendo encará-lo."
+
+# game/script.rpy:194
+translate English continuing_439d35ca:
+
+    # ap "Só...só...tome cuidado, ok?"
+    ap "Só...só...tome cuidado, ok?"
+
+# game/script.rpy:195
+translate English continuing_83833696:
+
+    # "Nosso clima lúdico desapareceu completamente agora..."
+    "Nosso clima lúdico desapareceu completamente agora..."
+

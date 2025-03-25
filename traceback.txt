@@ -1,42 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "renpy/common/00start.rpy", line 219, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 551, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 551, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 565, in _execute_python_hide
-    renpy.load(renpy.session["_reload_slot"])
-Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
+After initialization, but before game start.
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Faculdade\\Trabalho da Faculdade\\7º Periodo\\renpy-8.2.0-sdk\\tmp\\strings.json'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 219, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 551, in script
-    python hide:
-  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 551, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 565, in _execute_python_hide
-    renpy.load(renpy.session["_reload_slot"])
-  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\loadsave.py", line 838, in load
-    log.unfreeze(roots, label="_after_load")
-  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\rollback.py", line 1134, in unfreeze
-    self.rollback(0, force=True, label=label, greedy=greedy, on_load=True)
-  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\rollback.py", line 930, in rollback
-    self.load_failed()
-  File "C:\Users\dvice\Documents\renpy-8.0.0-sdk\renpy\rollback.py", line 848, in load_failed
-    raise Exception("Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?")
-Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\main.py", line 635, in main
+    run(restart)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\main.py", line 106, in run
+    if not renpy.arguments.post_init():
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\arguments.py", line 308, in post_init
+    return commands[command]()
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\translation\merge.py", line 52, in merge_strings
+    with open(args.source, "r", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Faculdade\\Trabalho da Faculdade\\7º Periodo\\renpy-8.2.0-sdk\\tmp\\strings.json'
 
-Windows-10-10.0.19041 AMD64
-Ren'Py 8.3.7.25031702
+Windows-10-10.0.26100 AMD64
+Ren'Py 8.2.0.24012702
 Jinrou no Mori demo 0.1
-Fri Mar 21 13:56:42 2025
+Tue Mar 25 15:38:29 2025

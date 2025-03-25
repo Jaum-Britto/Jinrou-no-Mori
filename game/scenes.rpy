@@ -1,19 +1,23 @@
 #Chapter 1 scenes
 
 #Extra scene
-image scene_black = "Background_Black.png"
+image scene_black = "backgrounds/Background_Black.png"
 
 #DAY 1
-image scene_1 = "MCbedroom_without_lights.png"
-image scene_2 = "outside_house.png"
-image scene_3 = "store_cafe_island.png"
-image scene_4 = "store_cafe.png"
-image scene_5 = "store_entrance.png"
+image scene_1 = "images/backgrounds/MCbedroom_without_lights.png"
+image scene_2 = "images/backgrounds/outside_house.png"
+image scene_3 = "images/backgrounds/store_cafe_island.png"
+image scene_4 = "images/backgrounds/store_cafe.png"
+image scene_5 = "images/backgrounds/store_entrance.png"
 
 #DAY 2
-image scene_endday2 = "SpecialFullScreen_Day2.png"
-image scene_night = "BACKGROUND_outside_house_NIGHT.png"
-image scene_evening = "BACKGROUND_outside_house_EVENING.png"
+image scene_endday2 = "images/backgrounds/SpecialFullScreen_Day2.png"
+image scene_night = "images/backgrounds/BACKGROUND_outside_house_NIGHT.png"
+image scene_evening = "images/backgrounds/BACKGROUND_outside_house_EVENING.png"
+
+#Apollor_route
+image bg_ap_room = "images/backgrounds/Bedroom_thesims_remake_night"
+
 
 #End Label/Credits
 

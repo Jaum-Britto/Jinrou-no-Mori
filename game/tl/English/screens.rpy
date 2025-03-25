@@ -253,3 +253,103 @@ translate English strings:
     # game/screens.rpy:1626
     old "Menu"
     new "Menu"
+# TODO: Translation updated at 2025-03-25 15:38
+
+translate English strings:
+
+    # game/screens.rpy:836
+    old "Voltar"
+    new "Voltar"
+
+    # game/screens.rpy:862
+    old "Languages"
+    new "Languages"
+
+    # game/screens.rpy:863
+    old "Português"
+    new "Português"
+
+    # game/screens.rpy:863
+    old "Tem certeza que deseja mudar o idioma?"
+    new "Tem certeza que deseja mudar o idioma?"
+
+    # game/screens.rpy:864
+    old "English"
+    new "English"
+
+    # game/screens.rpy:864
+    old "Are you sure you want to change the language?"
+    new "Are you sure you want to change the language?"
+
+    # game/screens.rpy:1144
+    old "Page Up"
+    new "Page Up"
+
+    # game/screens.rpy:1145
+    old "Rolls back to earlier dialogue."
+    new "Rolls back to earlier dialogue."
+
+    # game/screens.rpy:1148
+    old "Page Down"
+    new "Page Down"
+
+    # game/screens.rpy:1149
+    old "Rolls forward to later dialogue."
+    new "Rolls forward to later dialogue."
+
+    # game/screens.rpy:1161
+    old "Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}."
+    new "Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}."
+
+    # game/screens.rpy:1165
+    old "Opens the accessibility menu."
+    new "Opens the accessibility menu."
+
+    # game/screens.rpy:1171
+    old "Left Click"
+    new "Left Click"
+
+    # game/screens.rpy:1175
+    old "Middle Click"
+    new "Middle Click"
+
+    # game/screens.rpy:1179
+    old "Right Click"
+    new "Right Click"
+
+    # game/screens.rpy:1183
+    old "Mouse Wheel Up"
+    new "Mouse Wheel Up"
+
+    # game/screens.rpy:1187
+    old "Mouse Wheel Down"
+    new "Mouse Wheel Down"
+
+    # game/screens.rpy:1194
+    old "Right Trigger\nA/Bottom Button"
+    new "Right Trigger\nA/Bottom Button"
+
+    # game/screens.rpy:1198
+    old "Left Trigger\nLeft Shoulder"
+    new "Left Trigger\nLeft Shoulder"
+
+    # game/screens.rpy:1202
+    old "Right Shoulder"
+    new "Right Shoulder"
+
+    # game/screens.rpy:1206
+    old "D-Pad, Sticks"
+    new "D-Pad, Sticks"
+
+    # game/screens.rpy:1210
+    old "Start, Guide, B/Right Button"
+    new "Start, Guide, B/Right Button"
+
+    # game/screens.rpy:1214
+    old "Y/Top Button"
+    new "Y/Top Button"
+
+    # game/screens.rpy:1217
+    old "Calibrate"
+    new "Calibrate"
+
