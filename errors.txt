@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/tl/Portugues/common.rpy", line 4: Unexpected indentation at start of file.
+File "game/story/Rota_Apolo.rpy", line 23: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    ap "..."
+    ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Mar 25 17:54:26 2025
+Tue Mar 25 18:20:42 2025

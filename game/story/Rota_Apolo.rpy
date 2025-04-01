@@ -1,10 +1,8 @@
 default ap_points = 0
 
 
-label ap_route:
+label apollo_route:
     # Introdução da cena
-    show scene_black
-    with dissolve
     "Ficamos em silêncio enquanto eu penso sobre."
     "Ele realmente parece saber mais do que eu."
     "Mas ao mesmo tempo, eu também não contei a ele todos os detalhes..."
@@ -13,6 +11,7 @@ label ap_route:
     mc "Tudo bem mesmo eu ir?"
     show AP2
     ap "Claro, não quero que corra perigo."
+    show scene_black
     ap "Fique o tempo que quize-"
     mc "Olha, não foi nada de mais, ok? É só uma noite..."
 
@@ -22,7 +21,7 @@ label ap_route:
 
     mc "É estranho pensar nisso, ok?"
     ap "..."
-    show AP8
+    hide AP2
     ap "Se você realmente quer fingir que nada aconteceu, não precisamos falar sobre isso."
     ap "Finja que é uma festa do pijama, ou algo do tipo..."
 
@@ -36,6 +35,7 @@ label ap_route:
 
     # Transição para a casa do ap
     show bg_ap_room
+    show AP13
     with dissolve
     ap "Chegamos!"
 

@@ -1,24 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Faculdade\\Trabalho da Faculdade\\7º Periodo\\renpy-8.2.0-sdk\\tmp\\strings.json'
+While running game code:
+  File "game/story/Day_2.rpy", line 131, in script
+    jump Rota_Apolo
+ScriptError: could not find label 'Rota_Apolo'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\main.py", line 635, in main
-    run(restart)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\main.py", line 106, in run
-    if not renpy.arguments.post_init():
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\arguments.py", line 308, in post_init
-    return commands[command]()
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\translation\merge.py", line 52, in merge_strings
-    with open(args.source, "r", encoding="utf-8") as f:
-FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Faculdade\\Trabalho da Faculdade\\7º Periodo\\renpy-8.2.0-sdk\\tmp\\strings.json'
+  File "game/story/Day_2.rpy", line 131, in script
+    jump Rota_Apolo
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 1712, in execute
+    rv = renpy.game.script.lookup(target)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'Rota_Apolo'.
 
 Windows-10-10.0.26100 AMD64
-Ren'Py 8.2.0.24012702
+Ren'Py 8.3.7.25031702
 Jinrou no Mori demo 0.1
-Tue Mar 25 15:38:29 2025
+Tue Mar 25 18:02:41 2025

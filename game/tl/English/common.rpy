@@ -1416,4 +1416,27 @@ translate English strings:
 
     #Linha 782
     old "Parsing the script failed."
-    new "Parsing the script failed."
+    new "Parsing the script failed."# TODO: Translation updated at 2025-04-01 18:05
+
+translate English strings:
+
+    # renpy/common/00accessibility.rpy:199
+    old "Self-voicing support is limited when using a touch screen."
+    new ""
+
+    # renpy/common/00preferences.rpy:703
+    old "Self-voicing would say \"[renpy.display.tts.last]\". Press 'alt+shift+V' to disable."
+    new ""
+
+    # renpy/common/00translation.rpy:63
+    old "Translation identifier: [identifier]"
+    new ""
+
+    # renpy/common/00translation.rpy:84
+    old " translates [tl.filename]:[tl.linenumber]"
+    new ""
+
+    # renpy/common/00translation.rpy:101
+    old "\n{color=#fff}Copied to clipboard.{/color}"
+    new ""
+

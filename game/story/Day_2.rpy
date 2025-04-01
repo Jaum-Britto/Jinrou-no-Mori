@@ -71,8 +71,8 @@ label check_kitchen:
     "O coelho ainda está lá, e agora, sob a luz do dia, a cena é ainda mais perturbadora."
     mc "Isso... isso realmente são as entranhas de um coelho."
     "Você tenta limpar a cozinha, usando uma sacola plástica para se livrar da carcaça."
-    "Apesar de tudo, se sente um pouco melhor depois de terminar."
     $ sanidade -= 15  # Perde sanidade pela visão
+    "Apesar de tudo, se sente um pouco melhor depois de terminar."
     $ sanidade += 5  # Recupera um pouco ao limpar
     jump visit_apollo
 
@@ -85,8 +85,9 @@ label avoid_kitchen:
 
 label visit_apollo:
     # Visita de Apollo após o incidente
-    show scene_front_door
+    show scene_evening
     "Você está prestes a sair de casa quando ouve uma batida na porta."
+    show AP1
     ap "Ah... eu estava prestes a bater..."
     mc "Apollo? O que você está fazendo aqui tão cedo?"
     ap "Eu... ouvi alguns barulhos estranhos ontem à noite. Queria ver se estava tudo bem."
@@ -95,10 +96,12 @@ label visit_apollo:
     menu:
         "Contar sobre o coelho.":
             jump tell_about_rabbit
+            
         "Não contar.":
             jump dont_tell_about_rabbit
 
 label tell_about_rabbit:
+    show AP3
     mc "Na verdade, não... eu encontrei algo muito estranho ontem à noite."
     mc "Havia... um coelho morto na minha cozinha."
     ap "O quê? Um coelho morto?"

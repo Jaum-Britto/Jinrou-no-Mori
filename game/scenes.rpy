@@ -16,7 +16,7 @@ image scene_night = "images/backgrounds/BACKGROUND_outside_house_NIGHT.png"
 image scene_evening = "images/backgrounds/BACKGROUND_outside_house_EVENING.png"
 
 #Apollor_route
-image bg_ap_room = "images/backgrounds/Bedroom_thesims_remake_night"
+image bg_ap_room = "images/backgrounds/Bedroom_thesims_remake_night.png"
 
 
 #End Label/Credits
