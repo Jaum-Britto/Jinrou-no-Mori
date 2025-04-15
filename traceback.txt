@@ -1,26 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story/Day_2.rpy", line 40, in script
-    $ sanidade -= 30  # Reduz a sanidade
-  File "game/story/Day_2.rpy", line 40, in <module>
-    $ sanidade -= 30  # Reduz a sanidade
-NameError: name 'sanidade' is not defined
+  File "game/story/Day_2.rpy", line 166, in script
+    jump Rota_Apollo
+ScriptError: could not find label 'Rota_Apollo'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story/Day_2.rpy", line 40, in script
-    $ sanidade -= 30  # Reduz a sanidade
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/story/Day_2.rpy", line 40, in <module>
-    $ sanidade -= 30  # Reduz a sanidade
-NameError: name 'sanidade' is not defined
+  File "game/story/Day_2.rpy", line 166, in script
+    jump Rota_Apollo
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\ast.py", line 1712, in execute
+    rv = renpy.game.script.lookup(target)
+  File "E:\Faculdade\Trabalho da Faculdade\7º Periodo\renpy-8.2.0-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'Rota_Apollo'.
 
-Windows-10-10.0.22621 AMD64
-Ren'Py 8.2.0.24012702
-Jinrou no Mori demo 0.1
-Tue Nov  5 20:03:02 2024
+Windows-10-10.0.26100 AMD64
+Ren'Py 8.3.7.25031702
+Jinrou no Mori Demo 1.0
+Tue Apr 15 17:57:06 2025
