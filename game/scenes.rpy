@@ -66,7 +66,7 @@ image Closet_1 = "max_guestroom_1_details_night.png"
 
 #Rota Apollo
 
-image Ap_bedroom_1 = "Ap_bedroom_morning.png"
-image Ap_bedroom_2 = "Ap_bedroom_nom.png"
-image Ap_bedroom_3 = "Ap_bedroom_evening.png"
-image Ap_bedroom_4 = "Ap_bedroom_night.png"
+image Ap_bedroom_1 = "bedroo_thesims_remake_morning_redraw_.png"
+image Ap_bedroom_2 = "bedroo_thesims_remake_morning_redraw_noeffect.png"
+image Ap_bedroom_3 = "bedroo_thesims_remake_evening_redraw_.png"
+image Ap_bedroom_4 = "bedroo_thesims_remake_night.png"

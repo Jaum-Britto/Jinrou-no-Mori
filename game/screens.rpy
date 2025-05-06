@@ -1744,46 +1744,95 @@ screen gallery_main():
             xsize 300
             ysize 200
             vbox:
-                align (0.5, 0.1)
-                text "Cenários" style "page_label_text" size 30 xalign 0.5
+                align (0.5, 0.4)
                 null height 20
-                textbutton "Abrir" action Show("gallery_cenarios") style "page_button" xalign 0.5
+                textbutton "Cenários" action Show("gallery_cenarios") style "page_button" xalign 0.5
         frame:
             style_prefix "horror_slot"
             xsize 300
             ysize 200
             vbox:
-                align (0.5, 0.1)
-                text "Personagens" style "page_label_text" size 30 xalign 0.5
+                align (0.5, 0.4)
                 null height 20
-                textbutton "Abrir" action Show("gallery_personagens") style "page_button" xalign 0.5
+                textbutton "Personagens" action Show("gallery_personagens") style "page_button" xalign 0.5
         frame:
             style_prefix "horror_slot"
             xsize 300
             ysize 200
             vbox:
-                align (0.5, 0.1)
-                text "Minigames" style "page_label_text" size 30 xalign 0.5
+                align (0.5, 0.4)
                 null height 20        
-                textbutton "Abrir" action Show("gallery_minigames") style "page_button" xalign 0.5
+                textbutton "Minigames" action Show("gallery_minigames") style "page_button" xalign 0.5
        
     textbutton "Voltar" action Return() style "page_button" xalign 0.5 yalign 0.95
 
 screen gallery_personagens():
     tag menu
-    add "scene_black"
+    add "images/Outdated (N REMOVER)/adam gif.gif"
 
-    vbox:
-        align (0.5, 0.1)
+    text "Personagens" style "page_label_text" size 80 xalign 0.5
+
+    grid 3 2:
+        align (0.5, 0.5)
         spacing 20
+        frame:
+            style_prefix "horror_slot"
+            xsize 300
+            ysize 200
+            vbox:
+                xalign 0.5
+                yalign 0.2
+                spacing 10
 
-        text "Personagens" style "page_label_text"
+                button:
+                    action Show("gallery_apollo")
+                    xalign 0.5
+                    background None
+                    idle_foreground Solid("#00000000")
+                    hover_foreground Solid("#00000040")
+                    add "images/apollo_onjob_smile.png" xalign 0.5 fit "contain" 
 
-        textbutton "Apollo" action Show("gallery_apollo") style "page_button"
-        textbutton "Max" action Show("gallery_max") style "page_button"
-        textbutton "Tia da Cantina" action Show("gallery_tia") style "page_button"
+                text "Apollo" xalign 0.5 yalign 0.6 style "page_button"
 
-        textbutton "Voltar" action Show("gallery_main") style "page_button"
+        frame:
+            style_prefix "horror_slot"
+            xsize 300
+            ysize 200
+            vbox:
+                xalign 0.5
+                yalign 0.2
+                spacing 10
+
+                button:
+                    action Show("gallery_max")
+                    xalign 0.5
+                    background None
+                    idle_foreground Solid("#00000000")
+                    hover_foreground Solid("#00000040")
+                    add "images/max_disguise.png" xalign 0.5 fit "contain"
+                    
+                text "Max" xalign 0.5 yalign 0.5 style "page_button" 
+
+        frame:
+            style_prefix "horror_slot"
+            xsize 300
+            ysize 200
+            vbox:
+                xalign 0.5
+                yalign 0.2
+                spacing 10
+
+                button:
+                    action Show("gallery_tia")
+                    xalign 0.5
+                    background None
+                    idle_foreground Solid("#00000000")
+                    hover_foreground Solid("#00000040")
+                    add "images/ta_da_cantina1.png" xalign 0.5 fit "contain"
+                
+                text "Tia da Cantina" xalign 0.5 style "page_button" 
+
+    textbutton "Voltar" action Show("gallery_main") style "page_button" xalign 0.5 yalign 0.95
 
 screen gallery_apollo():
     tag menu
@@ -1826,12 +1875,36 @@ screen gallery_max():
     add "scene_black"
 
     vbox:
-        align (0.5, 0.1)
+        spacing 10
+        xalign 0.5
+        yalign 0.05
 
-        text "Max" style "page_label_text"
-        text "Em construção..." xalign 0.5
+        text "Max - Galeria de Expressões" style "page_label_text"
 
-        textbutton "Voltar" action Show("gallery_personagens") style "page_button"
+        frame:
+            xsize 600
+            ymaximum 500
+            xalign 0.5
+            background None
+            padding (10, 10)
+
+            viewport:
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+
+                vbox:
+                    spacing 10
+                    for i in range(1, 10):  # Vai de M1 até M9
+                        $ nome_persistente = "m" + str(i)
+                        $ nome_sprite = "M" + str(i)
+                        if getattr(persistent, nome_persistente):
+                            textbutton "Max - Expressão [i]":
+                                action Show("show_image_fullscreen", imagem=nome_sprite, voltar_para="gallery_max")
+                                style "page_button"
+                                xalign 0.5
+
+    textbutton "Voltar" action Show("gallery_personagens") style "page_button" xalign 0.5 yalign 0.95
 
 screen gallery_tia():
     tag menu

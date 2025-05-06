@@ -46,6 +46,15 @@ label start:
  default persistent.ap22 = False
  default persistent.ap23 = False
  default persistent.ap24 = False
+ default persistent.m1 = False
+ default persistent.m2 = False
+ default persistent.m3 = False
+ default persistent.m4 = False
+ default persistent.m5 = False
+ default persistent.m6 = False
+ default persistent.m7 = False
+ default persistent.m8 = False
+ default persistent.m9 = False
 
 # ... até o número que quiser (ex: ap24 para AP24)
 
@@ -389,6 +398,15 @@ label continuing:
 
  show M3
  with dissolve
+ $ persistent.m3 = True
+ $ persistent.m1 = True
+ $ persistent.m2 = True
+ $ persistent.m4 = True
+ $ persistent.m6 = True
+ $ persistent.m7 = True
+ $ persistent.m8 = True
+ $ persistent.m9 = True
+ $ persistent.m5 = True
 
  "Olho para o cara em questão, depois volto para Apollo e aceno com a cabeça..."
 
@@ -600,6 +618,7 @@ label continuing3:
 
  show AP11
  with dissolve
+ hide AP6
 
  ap "Ah! Hora de te expulsar!"
  mc "Hein?"
@@ -665,9 +684,10 @@ label continuing3:
  hide Loja_2
  hide Casa_10
  hide Casa_5
- hide scene_black
  hide AP9
-
+ hide screen hud
+ hide AP6
+ window hide
  #timeskip
 
  

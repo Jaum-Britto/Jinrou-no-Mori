@@ -6,18 +6,18 @@ label day_2:
     # Transição do fim do dia 1 para o início do dia 2
     show text "{size=100}Dia 2{/size}" at truecenter with dissolve
     pause 2
-    hide title with fade
+    hide text with fade
 
     play music "audio/soundtrack/floresta.ogg"volume 5
-    show scene_black
+    
     "Depois de um longo dia, você finalmente chega em casa."
     "Você toma um banho, organiza suas coisas e, com o som da chuva lá fora, adormece rapidamente."
-
+    show screen hud
     # Hora do despertar durante a noite
     "*CLANK*"
     "Você acorda com um barulho alto. Seu coração dispara."
     "O que foi isso? Veio de dentro da casa?"
-
+    show Ap_bedroom_1
     # Investigação inicial - a gaveta e a janela aberta
     "Você olha em volta e percebe que sua gaveta está meio aberta."
     mc "Eu tinha certeza de que fechei a gaveta..."
