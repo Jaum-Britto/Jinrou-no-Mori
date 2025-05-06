@@ -1,24 +1,32 @@
 # Definições relacionadas a itens
 init python:
 
+    # Lista para armazenar os itens do inventário
+    inventory = []
+
     # Classe de item com nome, descrição, quantidade e imagem
     class Item:
         def __init__(self, name, description, quantity=1):
             self.name = name
             self.description = description
             self.quantity = quantity
-
+            
         def __str__(self):
             return f"{self.name} (x{self.quantity})"
 
-    # Lista para armazenar os itens do inventário
-    inventory = []
 
     # Função para adicionar itens ao inventário
     def add_item(item):
         if item not in inventory:
             inventory.append(item)
             renpy.notify(f"Adicionado: {item.name}")
+
+    # # Função para verificar se um item está no inventário
+    # def has_item(item_id):
+    #     for item in inventory:
+    #         if item.id == item_id:
+    #             return True
+    #     return False
 
     # Função para remover itens do inventário
     def remove_item(item):

@@ -4,6 +4,10 @@ default sanidade = 100
 
 label day_2:
     # Transição do fim do dia 1 para o início do dia 2
+    show text "{size=100}Dia 2{/size}" at truecenter with dissolve
+    pause 2
+    hide title with fade
+
     play music "audio/soundtrack/floresta.ogg"volume 5
     show scene_black
     "Depois de um longo dia, você finalmente chega em casa."
@@ -32,7 +36,7 @@ label investigate_noise:
     "Enquanto você desce até a cozinha, o ambiente está escuro e assustadoramente silencioso."
 
     show Casa_7
-    
+    hide scene_black
     "Você nota algo estranho no chão perto da geladeira. Não parece comida..."
     
     # Escolha: Investigar o objeto estranho

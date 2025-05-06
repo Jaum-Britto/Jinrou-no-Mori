@@ -11,8 +11,6 @@
 
 label start:
 #Teste com Hud para inventario
- show screen hud
-
  scene scene_black
 
  #script de escolha de nome:
@@ -23,13 +21,46 @@ label start:
  if not povname:
     $ povname =  "Sam"
 
- #o script acaba aqui....
+ #Bloqueia imagens na galeria
+ default persistent.ap1 = False
+ default persistent.ap2 = False
+ default persistent.ap3 = False
+ default persistent.ap4 = False
+ default persistent.ap5 = False
+ default persistent.ap6 = False
+ default persistent.ap7 = False
+ default persistent.ap8 = False
+ default persistent.ap9 = False
+ default persistent.ap10 = False
+ default persistent.ap11 = False
+ default persistent.ap12 = False
+ default persistent.ap13 = False
+ default persistent.ap14 = False
+ default persistent.ap15 = False
+ default persistent.ap16 = False
+ default persistent.ap17 = False
+ default persistent.ap18 = False
+ default persistent.ap19 = False
+ default persistent.ap20 = False
+ default persistent.ap21 = False
+ default persistent.ap22 = False
+ default persistent.ap23 = False
+ default persistent.ap24 = False
+
+# ... até o número que quiser (ex: ap24 para AP24)
+
 
  #isso para a música
  stop music
+ jump day_1
+
+label day_1:  
+ show text "{size=100}Dia 1{/size}" at truecenter with dissolve
+ pause 2
+ hide text with fade
 
  play music "audio/119402__kyster__nice-forrest-ambience.ogg"volume 50
-
+ show screen hud
  #isso mostra a cena
  scene Casa_5
  with dissolve
@@ -112,6 +143,30 @@ label start:
 
  hide AP13
  with dissolve
+
+ $ persistent.ap1 = True
+ $ persistent.ap2 = True
+ $ persistent.ap3 = True
+ $ persistent.ap4 = True
+ $ persistent.ap5 = True
+ $ persistent.ap6 = True
+ $ persistent.ap7 = True
+ $ persistent.ap8 = True
+ $ persistent.ap9 = True
+ $ persistent.ap10 = True
+ $ persistent.ap11 = True
+ $ persistent.ap12 = True
+ $ persistent.ap13 = True
+ $ persistent.ap14 = True
+ $ persistent.ap15 = True
+ $ persistent.ap16 = True
+ $ persistent.ap17 = True
+ $ persistent.ap18 = True
+ $ persistent.ap19 = True
+ $ persistent.ap20 = True
+ $ persistent.ap21 = True
+ $ persistent.ap22 = True
+ $ persistent.ap24 = True
 
  show AP3
  with dissolve

@@ -436,7 +436,7 @@ screen main_menu():
         imagebutton auto "gui/preferences_%s.png" focus_mask True action ShowMenu("preferences")
         
         if renpy.get_screen("main_menu"):
-            imagebutton auto "gui/gallery_%s.png" focus_mask True action ShowMenu("gallery")  
+            imagebutton auto "gui/gallery_%s.png" focus_mask True action ShowMenu("gallery_main")  
 
 
         if _in_replay:
@@ -569,6 +569,11 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
                     transclude
 
     #use navigation
+    if title == _("Preferences") and not main_menu:
+        textbutton _("MENU PRINCIPAL"):
+            style "return_button"
+            action MainMenu()
+            yalign 0.9    
 
     textbutton _("Return"):
         style "return_button"
@@ -853,7 +858,6 @@ screen preferences():
                     label _("Idiomas")
                     textbutton _("Inglês") action Language ("english")
                     textbutton _("Português") action Language (None) 
-
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
@@ -1722,3 +1726,177 @@ screen hud:
     frame:
         align (0.01, 0.01)
         textbutton "Inventário" action ShowMenu("inventory_screen")
+
+################################################################################
+## Screen Galeria
+################################################################################
+screen gallery_main():
+    tag menu
+    add "images/Outdated (N REMOVER)/adam gif.gif"
+
+    text "Galeria" style "page_label_text" size 70 xalign 0.5
+
+    grid 3 2:
+        align (0.5, 0.5)
+        spacing 20
+        frame:
+            style_prefix "horror_slot"
+            xsize 300
+            ysize 200
+            vbox:
+                align (0.5, 0.1)
+                text "Cenários" style "page_label_text" size 30 xalign 0.5
+                null height 20
+                textbutton "Abrir" action Show("gallery_cenarios") style "page_button" xalign 0.5
+        frame:
+            style_prefix "horror_slot"
+            xsize 300
+            ysize 200
+            vbox:
+                align (0.5, 0.1)
+                text "Personagens" style "page_label_text" size 30 xalign 0.5
+                null height 20
+                textbutton "Abrir" action Show("gallery_personagens") style "page_button" xalign 0.5
+        frame:
+            style_prefix "horror_slot"
+            xsize 300
+            ysize 200
+            vbox:
+                align (0.5, 0.1)
+                text "Minigames" style "page_label_text" size 30 xalign 0.5
+                null height 20        
+                textbutton "Abrir" action Show("gallery_minigames") style "page_button" xalign 0.5
+       
+    textbutton "Voltar" action Return() style "page_button" xalign 0.5 yalign 0.95
+
+screen gallery_personagens():
+    tag menu
+    add "scene_black"
+
+    vbox:
+        align (0.5, 0.1)
+        spacing 20
+
+        text "Personagens" style "page_label_text"
+
+        textbutton "Apollo" action Show("gallery_apollo") style "page_button"
+        textbutton "Max" action Show("gallery_max") style "page_button"
+        textbutton "Tia da Cantina" action Show("gallery_tia") style "page_button"
+
+        textbutton "Voltar" action Show("gallery_main") style "page_button"
+
+screen gallery_apollo():
+    tag menu
+    add "scene_black"
+
+    vbox:
+        spacing 10
+        xalign 0.5
+        yalign 0.05
+
+        text "Apollo - Galeria de Expressões" style "page_label_text"
+
+        frame:
+            xsize 600
+            ymaximum 500
+            xalign 0.5
+            background None
+            padding (10, 10)
+
+            viewport:
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+
+                vbox:
+                    spacing 10
+                    for i in range(1, 25):
+                        $ nome_persistente = "ap" + str(i)
+                        $ nome_sprite = "AP" + str(i)
+                        if getattr(persistent, nome_persistente):
+                            textbutton "Apollo - Expressão [i]":
+                                action Show("show_image_fullscreen", imagem=nome_sprite, voltar_para="gallery_apollo")
+                                style "page_button"
+                                xalign 0.5
+
+    textbutton "Voltar" action Show("gallery_personagens") style "page_button" xalign 0.5 yalign 0.95
+
+screen gallery_max():
+    tag menu
+    add "scene_black"
+
+    vbox:
+        align (0.5, 0.1)
+
+        text "Max" style "page_label_text"
+        text "Em construção..." xalign 0.5
+
+        textbutton "Voltar" action Show("gallery_personagens") style "page_button"
+
+screen gallery_tia():
+    tag menu
+    add "scene_black"
+
+    vbox:
+        align (0.5, 0.1)
+
+        text "Tia da Cantina" style "page_label_text"
+        text "Em construção..." xalign 0.5
+
+        textbutton "Voltar" action Show("gallery_personagens") style "page_button"
+
+screen gallery_minigames():
+    tag menu
+    add "scene_black"
+
+    vbox:
+        align (0.5, 0.1)
+        spacing 15
+
+        text "MiniGames" style "page_label_text"
+        text "Jogo da Memória" xalign 0.5
+        text "Em desenvolvimento..." xalign 0.5
+
+        textbutton "Voltar" action Show("gallery_main") style "page_button"
+
+screen gallery_cenarios():
+    tag menu
+    add "scene_black"
+
+    vbox:
+        align (0.5, 0.1)
+
+        text "Em construção..." xalign 0.5
+
+        textbutton "Voltar" action Show("gallery_main") style "page_button"
+
+screen show_image_fullscreen(imagem, voltar_para=None):
+    tag menu
+    add imagem
+
+    textbutton "Voltar" action Hide("show_image_fullscreen"), Show(voltar_para) style "page_button" xalign 0.95 yalign 0.95
+
+style page_label is gui_label
+style page_label_text is gui_label_text
+style page_button is gui_button
+style page_button_text is gui_button_text
+
+style slot_button is gui_button
+style slot_button_text is gui_button_text
+style slot_time_text is slot_button_text
+style slot_name_text is slot_button_text
+
+style page_label:
+    xpadding 50
+    ypadding 3
+
+style page_label_text:
+    textalign 0.5
+    layout "subtitle"
+    hover_color gui.hover_color
+
+style page_button:
+    properties gui.button_properties("page_button")
+
+style page_button_text:
+    properties gui.text_properties("page_button")
