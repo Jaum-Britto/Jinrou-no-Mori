@@ -177,7 +177,7 @@ label go_to_apollo_house:
     "Você decide ir para a casa de Apollo, tentando se sentir mais seguro."
     hide Casa_11
     stop music
-    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg") from _call_show_ending
+    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg")
     jump Rota_Apollo
     # Continuação...
 
@@ -185,7 +185,7 @@ label stay_home:
     "Você decide ficar em casa, mesmo com a preocupação crescente."
     hide Casa_11
     stop music
-    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg") from _call_show_ending_1
+    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg")
     jump day_3
     # Continuação...
 
