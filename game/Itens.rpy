@@ -6,27 +6,21 @@ init python:
 
     # Classe de item com nome, descrição, quantidade e imagem
     class Item:
-        def __init__(self, name, description, quantity=1):
+        def __init__(self, name, description, image, quantity=1):
             self.name = name
             self.description = description
+            # image deve ser o nome da imagem registrada em scenes.rpy
+            self.image = image
             self.quantity = quantity
             
         def __str__(self):
             return f"{self.name} (x{self.quantity})"
-
 
     # Função para adicionar itens ao inventário
     def add_item(item):
         if item not in inventory:
             inventory.append(item)
             renpy.notify(f"Adicionado: {item.name}")
-
-    # # Função para verificar se um item está no inventário
-    # def has_item(item_id):
-    #     for item in inventory:
-    #         if item.id == item_id:
-    #             return True
-    #     return False
 
     # Função para remover itens do inventário
     def remove_item(item):
@@ -41,18 +35,37 @@ init python:
     def show_item_description(item):
         global current_item_description
         current_item_description = f"{item.description}"
-        # Função para resetar a descrição do item
+    # Função para resetar a descrição do item
     def reset_item_description():
         global current_item_description
         current_item_description = ""
 
 
-
-# Exemplo de itens com nome, descrição, quantidade e imagem
-default PropTeste = Item(
-    name="Cachorro Quente", 
-    description="Cachorro Quente (Pão com salcisha e vários complementos)", 
-    quantity=1
+# Itens do inventário
+default item_enroladinho = Item(
+    name="Enroladinho",
+    description="Um enroladinho de salsicha, parece apetitoso.",
+    image="images/inventario/hotdog.png"
 )
+
+default item_folha = Item(
+    name="Arvore esculpida",
+    description="Uma folha seca, talvez tenha algum uso especial.",
+    image="images/inventario/treesculpture.png"
+)
+
+default item_capsulas = Item(
+    name="Comprimidos",
+    description="Duas cápsulas de cor vermelha e azul. Para que servem?",
+    image="images/inventario/pills.png"
+)
+
+default item_identidade = Item(
+    name="Carteira de Identidade",
+    description="Um documento de identidade. Pode ser útil para provar quem você é.",
+    image="images/inventario/maxid.png"
+)
+
+
 
 

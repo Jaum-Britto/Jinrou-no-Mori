@@ -60,19 +60,19 @@ label day_3:
     "Eu passo pela árvore."
 
     menu:
-    "O que fazer com a árvore?"
-    "Marcar árvore.":
-        $ alterar_sanidade(-10)
-        $ max_pontos += 2  # Pequena afinidade por cautela
-        $ marcou_arvore = True
-        "Quero ter certeza de onde estou e de onde vim, é melhor marcar a árvore de alguma forma."
-        "Pego minha chave de casa e faço um risco na casca da árvore, fazendo uma seta apontando a direção da rua."
-        "Isso provavelmente é suficiente."
-    "Eu vou me lembrar.":
-        $ alterar_sanidade(10)
-        $ max_pontos -= 1  # Menos afinidade por confiar só em si
-        $ marcou_arvore = False
-        "Essa árvore parece bem marcante pra mim, e como eu disse, esse bosque não é tão grande, não tem um risco real de me perder aqui."
+        "O que fazer com a árvore?"
+        "Marcar árvore.":
+            $ alterar_sanidade(-10)
+            $ max_pontos += 2  # Pequena afinidade por cautela
+            $ marcou_arvore = True
+            "Quero ter certeza de onde estou e de onde vim, é melhor marcar a árvore de alguma forma."
+            "Pego minha chave de casa e faço um risco na casca da árvore, fazendo uma seta apontando a direção da rua."
+            "Isso provavelmente é suficiente."
+        "Eu vou me lembrar.":
+            $ alterar_sanidade(10)
+            $ max_pontos -= 1  # Menos afinidade por confiar só em si
+            $ marcou_arvore = False
+            "Essa árvore parece bem marcante pra mim, e como eu disse, esse bosque não é tão grande, não tem um risco real de me perder aqui."
 
     # Floresta profunda
     scene floresta_profunda
@@ -230,7 +230,7 @@ label interrogatorio_max:
     max "O meu nome é Max…"
 
     menu:
-        "Se apresentar?":
+        "Se apresentar?"
         "Se apresentar.":
             $ max_pontos += 10  # Sinceridade aumenta afinidade
             mc "O meu é [povname]."

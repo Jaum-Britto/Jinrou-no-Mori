@@ -1,7 +1,5 @@
 #desbloqueia as imagens de max na galeria.
 
-default max_pontos = 0
-
 label Rota_Max:
     scene porao_max
     show screen hud
@@ -207,12 +205,12 @@ label max_media_exploracao:
     mc "Não é isso... é só que eu imaginei uma refeição."
     max "Humanos complicam muito as coisas..."
     menu:
-        "Comer barra de cereais (+15 sanidade +5 pontos max)":
-            $ alterar_sanidade(15) 15
+        "Comer barra de cereais":
+            $ alterar_sanidade(15)
             $ max_pontos += 5
             "Como a barra de cereais. Ela some do inventário."
             jump max_media_explora_quarto
-        "Não comer (-10 pontos max)":
+        "Não comer":
             $ max_pontos -= 10
             "Decido não comer. A barra some do inventário."
             jump max_media_explora_quarto

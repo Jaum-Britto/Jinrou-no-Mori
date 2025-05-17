@@ -162,18 +162,6 @@ label pain_reaction:
     stop music
     jump continue_scene
 
-label beg_for_mercy:
-    mc "Ack... E- Eu faço qualquer coisa!"
-    "Seus dedos afrouxam um pouco, apesar de ele não soltar meu cabelo completamente."
-    ap "Mesmo? Qualquer coisa?"
-    mc "Q-qualquer coisa! Só... por favor, não me machuque..."
-    ap "Pff- haha... qualquer coisa?"
-    show AP22
-    ap "O que mais você acha que eu quero fazer além de te machucar?"
-    stop music
-    hide AP22
-    jump continue_scene
-
 label continue_scene:
     "ap está sempre sorrindo. Isso é o normal dele..."
     "Mas isso..."

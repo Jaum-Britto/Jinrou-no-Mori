@@ -53,9 +53,12 @@ image Timeskip = Movie(play="timeskip.webm")
 image sanity_low1 = "sanity low1.png"
 image sanity_low2 = "sanity low2.png"
 
+
 # ===========================================================================
 # OUTROS ( Adicione aqui qualquer outra imagem especial, ícones, etc.)
 # ===========================================================================
 
 image mao_direita = "images/mao_direita.png"
 image mao_esquerda = "images/mao_esquerda.png"
+
+

@@ -301,6 +301,7 @@ screen quick_menu():
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
+            textbutton _("Load") action ShowMenu('load')
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
@@ -1973,3 +1974,82 @@ style page_button:
 
 style page_button_text:
     properties gui.text_properties("page_button")
+
+
+## Inventory screen ############################################################
+##
+## This screen displays the inventory of the player, allowing them to use or
+## examine the items they have collected.
+##
+## https://www.renpy.org/doc/html/screen_special.html#inventory
+
+screen inventory_screen:
+    modal True
+    zorder 200
+
+    # Fundo do inventário
+    add "images/inventario/inventarioptbr.png" fit "contain"
+
+    # Variável temporária para o item selecionado
+    default selected_item = inventory[0] if inventory else None
+
+    # Lista de itens (vertical, central)
+    frame:
+        xpos 420
+        ypos 60
+        xsize 350
+        ysize 600
+        background None
+
+        vbox:
+            spacing 8
+            for item in inventory:
+                button:
+                    background "#0000"  # transparente
+                    xsize 340
+                    ysize 48
+                    action SetScreenVariable("selected_item", item)
+                    text "[item.name] (x[item.quantity])":
+                        color "#222"
+                        size 32
+                        xalign 0.0
+                        bold True
+                    if selected_item == item:
+                        add Solid("#ffb70044") xysize (340, 48)  # destaque
+
+    # Imagem do item selecionado (post-it superior direito)
+    if selected_item and hasattr(selected_item, "image"):
+        add selected_item.image xpos 1020 ypos 150 xsize 170 ysize 140
+
+    # Descrição do item selecionado (post-it inferior direito)
+    if selected_item:
+        frame:
+            xpos 1010
+            ypos 420
+            xsize 200
+            ysize 200
+            background None
+            text selected_item.description color "#222" size 20 xalign 0.0 yalign 0.0
+
+    # Botões nos recortes laranjas (canto inferior esquerdo)
+    frame:
+        xpos 280
+        ypos 550
+        background None
+        vbox:
+            spacing 10
+            textbutton "Inspecionar" action [Function(inspect_item, selected_item)] xsize 180 ysize 40 ypos -8
+            textbutton "Usar" action [Function(use_item, selected_item)] xsize 180 ysize 40 xpos 20
+            textbutton "Sair" action [Return()] xsize 180 ysize 40 xpos 30
+
+# Funções de exemplo para usar/inspecionar
+init python:
+    def use_item(item):
+        if item:
+            renpy.notify(f"Você usou: {item.name}")
+            # Aqui você pode adicionar lógica para consumir/remover o item
+
+    def inspect_item(item):
+        if item:
+            renpy.notify(f"Inspecionando: {item.name}")
+            # Aqui você pode mostrar uma tela extra ou mais detalhes

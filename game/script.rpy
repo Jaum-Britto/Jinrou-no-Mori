@@ -59,6 +59,10 @@ label start:
 
 # ... até o número que quiser (ex: ap24 para AP24)
 
+ $ add_item(item_enroladinho)
+ $ add_item(item_folha)
+ $ add_item(item_capsulas)
+ $ add_item(item_identidade)
 
  #isso para a música
  stop music
