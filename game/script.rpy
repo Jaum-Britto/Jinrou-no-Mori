@@ -10,16 +10,17 @@
 # The game starts here.
 
 label start:
-#Teste com Hud para inventario
  scene scene_black
-
- #script de escolha de nome:
 
  $ povname = renpy.input("Escolha o seu Nome:", length = 6)
  $ povname = povname.strip()
-
  if not povname:
-    $ povname =  "Sam"
+   $ povname = "Sam"
+
+ # Variáveis globais de sanidade e afinidade
+ default sanidade = 100
+ default max_pontos = 0
+ default ap_points = 0
 
  #Bloqueia imagens na galeria
  default persistent.ap1 = False
@@ -256,8 +257,10 @@ label day_1:
 
  menu:
    "Você é tão idiota":
+      $ ap_points += 5
       jump dumb
    "O atendimento aqui é incrível, bom senhor":
+      $ ap_points += 10
       jump drama
 #Teste de deletar item
 label some_other_part_of_the_game:
@@ -428,13 +431,9 @@ label continuing:
  show Loja_2
  with dissolve
 
- #jump TimeSkip
-
- #Nesse local ficará a parte do script que tem relação ao timeskip...
- #label TimeSkip:
-
- #image Timeskip = Movie(play="timeskip.webp")
-
+ show Timeskip
+ $ renpy.pause(2.0)
+ hide Timeskip
  jump continuing2
 
 label continuing2:
@@ -597,10 +596,12 @@ label continuing3:
  
  #terceira escolha
  menu:
-   "Perguntar qual é o problema":
-      jump problem
-   "Deixar para lá":
-      jump lookback
+    "Perguntar qual é o problema":
+        $ ap_points += 5
+        jump problem
+    "Deixar para lá":
+        $ ap_points -= 2
+        jump lookback
 
  label lookback: #+10% com o Apollo
 
@@ -688,13 +689,12 @@ label continuing3:
  hide screen hud
  hide AP6
  window hide
- #timeskip
 
- 
- #Teste de final de jogo...
+ show Timeskip
+ $ renpy.pause(2.0)
+ hide Timeskip 
  jump day_2
 
- #Label de créditos - final de jogo
 label endgame:
 
  play music "audio/soundtrack/floresta.ogg"volume 5
@@ -705,4 +705,21 @@ label endgame:
 
  $ renpy.pause(10.0)
 
-return
+return()
+
+init python:
+    def alterar_sanidade(valor):
+        global sanidade
+        sanidade += valor
+        if sanidade <= 0:
+            renpy.jump("endgame")
+
+label show_ending(imagem, musica):
+    stop music
+    play music musica
+    scene expression imagem
+    with fade
+    $ renpy.pause(6.0)  # tempo de exibição
+    hide expression imagem
+    with fade
+    return

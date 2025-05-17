@@ -1,7 +1,3 @@
-# Continuação do Dia 1 e implementação do Dia 2 - 3:00 am
-#Criando a Sanidade
-default sanidade = 100
-
 label day_2:
     # Transição do fim do dia 1 para o início do dia 2
     show text "{size=100}Dia 2{/size}" at truecenter with dissolve
@@ -27,8 +23,10 @@ label day_2:
     # Escolha: Investigar mais ou trancar-se no quarto
     menu:
         "Chegar mais perto.":
+            $ alterar_sanidade(-20)  # Reduz mais, pois é uma escolha corajosa mas arriscada
             jump investigate_noise
         "Voltar para o quarto e trancar a porta.":
+            $ alterar_sanidade(5)   # Recupera um pouco por evitar o estresse imediato
             jump go_back_to_bed
 
 label investigate_noise:
@@ -46,9 +44,17 @@ label investigate_noise:
             "Você se aproxima e vê... um coelho morto. Suas entranhas estão expostas."
             mc "Isso... isso são tripas?"
             "A visão é horrível. Você se afasta, enjoado, tentando processar o que acabou de ver."
+            scene scene_black
+            show olhos_no_escuro at center
+            "Você sente que há algo te observando na escuridão..."
             hide Casa_9
             hide Casa_7
-            $ sanidade -= 30  # Reduz a sanidade
+            hide olhos_no_escuro
+            hide scene_black
+            "Você tenta se acalmar, mas a sensação de estar sendo vigiado é insuportável."
+            "Você decide que é melhor voltar para o quarto e trancar a porta."
+            "Você não consegue parar de pensar no que aconteceu. O coelho... e a sensação de estar sendo observado."
+            $ alterar_sanidade(-30)  # Reduz a sanidade
             jump day_2_continue
         "Voltar para o quarto e trancar a porta.":
             hide Casa_7
@@ -60,7 +66,7 @@ label go_back_to_bed:
     mc "O que quer que seja, não está mais aqui... certo?"
     "Você respira fundo e tenta voltar a dormir, mas não consegue parar de pensar no que aconteceu."
     hide Casa_4
-    $ sanidade += 10  # Recupera um pouco de sanidade
+    $ alterar_sanidade(10)  # Recupera um pouco de sanidade
     jump day_2_continue
 
 label day_2_continue:
@@ -89,15 +95,15 @@ label check_kitchen:
     hide Casa_8
     "Apesar de tudo, se sente um pouco melhor depois de terminar."
     hide Casa_6
-    $ sanidade -= 15  # Perde sanidade pela visão
-    $ sanidade += 5  # Recupera um pouco ao limpar
+    $ alterar_sanidade(-15)  # Perde sanidade pela visão
+    $ alterar_sanidade(5)  # Recupera um pouco ao limpar
     jump visit_apollo
 
 label avoid_kitchen:
     "Você não tem coragem de voltar para a cozinha agora."
     "O pensamento de ver aquele coelho morto novamente é demais para você."
     "Você decide sair para tomar um ar."
-    $ sanidade -= 10  # Perde sanidade por evitar a situação
+    $ alterar_sanidade(-10)  # Perde sanidade por evitar a situação
     jump visit_apollo
 
 label visit_apollo:
@@ -117,8 +123,10 @@ label visit_apollo:
     # Escolha: Contar sobre o coelho ou não
     menu:
         "Contar sobre o coelho.":
+            $ ap_points += 5  # Sinceridade aumenta afinidade
             jump tell_about_rabbit
         "Não contar.":
+            $ ap_points -= 2  # Esconder reduz afinidade
             jump dont_tell_about_rabbit
 
 label tell_about_rabbit:
@@ -157,9 +165,11 @@ label apollo_concern:
     hide AP3
     menu:
         "Aceitar o convite.":
+            $ ap_points += 10  # Aceitar aumenta bastante a afinidade
             mc "Talvez você tenha razão. Pode ser uma boa ideia."
             jump go_to_apollo_house
         "Recusar.":
+            $ ap_points -= 5  # Recusar reduz afinidade
             mc "Eu agradeço, Apollo, mas acho que posso lidar com isso."
             jump stay_home
 
@@ -167,6 +177,7 @@ label go_to_apollo_house:
     "Você decide ir para a casa de Apollo, tentando se sentir mais seguro."
     hide Casa_11
     stop music
+    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg")
     jump Rota_Apollo
     # Continuação...
 
@@ -174,7 +185,8 @@ label stay_home:
     "Você decide ficar em casa, mesmo com a preocupação crescente."
     hide Casa_11
     stop music
-    jump endgame
+    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg")
+    jump day_3
     # Continuação...
 
 # Continuação do jogo...
