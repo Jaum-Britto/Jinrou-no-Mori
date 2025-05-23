@@ -1733,39 +1733,73 @@ screen hud:
 ################################################################################
 screen gallery_main():
     tag menu
-    add "images/Outdated (N REMOVER)/adam gif.gif"
 
-    text "Galeria" style "page_label_text" size 70 xalign 0.5
+    # Fundo artístico da galeria (adicione sua imagem de fundo)
+    add "images/gallery_background.png"  # Troque pelo caminho correto
 
-    grid 3 2:
-        align (0.5, 0.5)
-        spacing 20
-        frame:
-            style_prefix "horror_slot"
-            xsize 300
-            ysize 200
-            vbox:
-                align (0.5, 0.4)
-                null height 20
-                textbutton "Cenários" action Show("gallery_cenarios") style "page_button" xalign 0.5
-        frame:
-            style_prefix "horror_slot"
-            xsize 300
-            ysize 200
-            vbox:
-                align (0.5, 0.4)
-                null height 20
-                textbutton "Personagens" action Show("gallery_personagens") style "page_button" xalign 0.5
-        frame:
-            style_prefix "horror_slot"
-            xsize 300
-            ysize 200
-            vbox:
-                align (0.5, 0.4)
-                null height 20        
-                textbutton "Minigames" action Show("gallery_minigames") style "page_button" xalign 0.5
-       
-    textbutton "Voltar" action Return() style "page_button" xalign 0.5 yalign 0.95
+    frame:
+        background "#2228"  # Fundo translúcido para destacar o conteúdo
+        xalign 0.5
+        yalign 0.05
+        xsize 1000
+        ysize 700
+
+        vbox:
+            spacing 30
+            xalign 0.5
+
+            text "Galeria" style "page_label_text" size 70 xalign 0.5 outlines [(2, "#000", 0, 0)]
+
+            grid 3 2:
+                align (0.5, 0.5)
+                spacing 40
+
+                # Exemplo de botões de categoria com miniaturas e efeito hover
+                frame:
+                    style_prefix "horror_slot"
+                    xsize 300
+                    ysize 200
+                    button:
+                        background "#fff2"
+                        hover_background "#ffb70044"
+                        xsize 300
+                        ysize 200
+                        action Show("gallery_finais")
+                        add "images/icon.png" xalign 0.5 yalign 0.5 fit "contain"
+                        text "Finais" xalign 0.5 yalign 0.9 style "page_button" size 32 outlines [(1, "#000", 0, 0)]
+
+                frame:
+                    style_prefix "horror_slot"
+                    xsize 300
+                    ysize 200
+                    button:
+                        background "#fff2"
+                        hover_background "#ffb70044"
+                        xsize 300
+                        ysize 200
+                        action Show("gallery_personagens")
+                        add "images/PropTest.png" xalign 0.5 yalign 0.5 fit "contain"
+                        text "Personagens" xalign 0.5 yalign 0.9 style "page_button" size 32 outlines [(1, "#000", 0, 0)]
+
+                frame:
+                    style_prefix "horror_slot"
+                    xsize 300
+                    ysize 200
+                    button:
+                        background "#fff2"
+                        hover_background "#ffb70044"
+                        xsize 300
+                        ysize 200
+                        action Show("gallery_minigames")
+                        add "images/ImgGaleria.png" xalign 0.5 yalign 0.5 fit "contain"
+                        text "Minigames" xalign 0.5 yalign 0.9 style "page_button" size 32 outlines [(1, "#000", 0, 0)]
+
+                # Espaços vazios para completar o grid
+                null
+                null
+                null
+
+            textbutton "Voltar" action Return() style "page_button" xalign 0.5 yalign 0.95
 
 screen gallery_personagens():
     tag menu
@@ -1925,15 +1959,31 @@ screen gallery_minigames():
 
     vbox:
         align (0.5, 0.1)
-        spacing 15
+        spacing 30
 
-        text "MiniGames" style "page_label_text"
-        text "Jogo da Memória" xalign 0.5
-        text "Em desenvolvimento..." xalign 0.5
+        text "MiniGames" style "page_label_text" size 60 xalign 0.5
 
-        textbutton "Voltar" action Show("gallery_main") style "page_button"
+        frame:
+            xalign 0.5
+            yalign 0.2
+            background "#2228"
+            padding (30, 30)
+            vbox:
+                spacing 20
 
-screen gallery_cenarios():
+                text "Selecione um minigame:" size 32 xalign 0.5
+
+                textbutton "Jogo da Memória":
+                    xalign 0.5
+                    action [Hide("gallery_minigames"), Jump("mini_game")]
+
+                textbutton "Minigame Futuro":
+                    xalign 0.5
+                   
+
+        textbutton "Voltar" action Show("gallery_main") style "page_button" xalign 0.5 yalign 0.95
+
+screen gallery_finais():
     tag menu
     add "scene_black"
 
@@ -2038,7 +2088,7 @@ screen inventory_screen:
         background None
         vbox:
             spacing 10
-            textbutton "Inspecionar" action [Function(inspect_item, selected_item)] xsize 180 ysize 40 ypos -8
+            textbutton "Inspecionar" action Show("inspect_item_screen", item=selected_item) xsize 180 ysize 40 ypos -8
             textbutton "Usar" action [Function(use_item, selected_item)] xsize 180 ysize 40 xpos 20
             textbutton "Sair" action [Return()] xsize 180 ysize 40 xpos 30
 
@@ -2046,10 +2096,54 @@ screen inventory_screen:
 init python:
     def use_item(item):
         if item:
-            renpy.notify(f"Você usou: {item.name}")
-            # Aqui você pode adicionar lógica para consumir/remover o item
+            # Executa efeito se existir
+            if hasattr(item, "effect") and item.effect:
+                item.effect()
+            if getattr(item, "consumable", True):
+                item.quantity -= 1
+                renpy.notify(f"Você usou: {item.name}")
+                if item.quantity <= 0:
+                    remove_item(item)
+            else:
+                renpy.notify(f"O item '{item.name}' não pode ser consumido.")
 
-    def inspect_item(item):
-        if item:
-            renpy.notify(f"Inspecionando: {item.name}")
-            # Aqui você pode mostrar uma tela extra ou mais detalhes
+
+screen inspect_item_screen(item):
+    modal True
+    zorder 300
+
+    # Fundo do inventário permanece visível
+    add "images/inventario/inventarioptbr.png" fit "contain"
+
+    # Imagem ampliada e centralizada
+    if item and hasattr(item, "image"):
+        add item.image xpos 0.5 ypos 0.5 xanchor 0.5 yanchor 0.5 zoom 1.5
+
+    # Nome e descrição do item
+    frame:
+        xalign 0.5
+        yalign 0.85
+        background "#ffffffcc"
+        padding (20, 10)
+        vbox:
+            text item.name size 32 bold True xalign 0.5
+            text item.description size 22 xalign 0.5
+
+    # Botão para fechar o zoom
+    textbutton "Fechar" action Hide("inspect_item_screen") xpos 312 ypos 645
+
+screen memory_rules_popup():
+    modal True
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding (60, 90)
+        vbox:
+            spacing 20
+            text "Regras do Jogo da Memória" size 40 xalign 0.5
+            text "Encontre todos os pares de cartas. Você tem um número limitado de vidas. Cada vez que vencer, o tempo para visualizar as cartas diminui. Boa sorte!" size 28 xalign 0.5 xmaximum 900 layout "subtitle"
+            hbox:
+                xalign 0.5
+                spacing 40
+                textbutton "Não mostrar novamente" action [SetField(persistent, "show_memory_rules", False), Return(), Show("memory_mini_game")] style "page_button"
+                textbutton "OK" action [Return(), Show("memory_mini_game")] style "page_button"

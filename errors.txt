@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2036: the xpos keyword argument was not given a value.
-    xpos 
-         ^
+File "game/screens.rpy", line 2150: Line is indented, but the preceding textbutton statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show screen memory_mini_game
+    ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Sat May 17 18:35:09 2025
+Thu May 22 22:00:30 2025
