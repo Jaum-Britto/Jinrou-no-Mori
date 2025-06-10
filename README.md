@@ -69,12 +69,27 @@ O sistema foi avaliado por **Pontos de Função (APF)** com total estimado de **
 
 ## 📝 Licença
 
-Este projeto é distribuído sob a [MIT License](LICENSE).
+# 📜 Ren'Py
+- Licença: MIT License
 
-## 📫 Contato
+- Link oficial: https://www.renpy.org/doc/html/license.html
 
-**Autor / Programador Principal**: João Gabriel Pfaff de Britto  
-**E‑mail**: colega@unidombosco.edu.br (ou atualize com o correto)
+## Resumo:
+
+- Você pode usar, modificar e distribuir Ren'Py livremente, até mesmo em projetos comerciais, desde que mantenha a licença e o aviso de copyright.
+
+# 📜 Visual Studio Code
+- Licença do binário oficial (Microsoft): Licença Proprietária (não-livre)
+
+- Licença do código-fonte (repositório open source): MIT License
+
+## Resumo:
+
+- O código-fonte é livre (MIT), mas o VS Code baixado do site oficial da Microsoft inclui partes proprietárias (como o branding), então não pode ser redistribuído.
+Para projetos livres, recomenda-se usar VSCodium — que é o VS Code sem as partes fechadas.
+
+
+
 
 ## 🚀 Próximos Passos
 
