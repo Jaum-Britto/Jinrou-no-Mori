@@ -93,7 +93,7 @@ Para projetos livres, recomenda-se usar VSCodium — que é o VS Code sem as par
 
 #### João Gabriel Pfaff de Britto  
 - GitHub: [Jaum-Britto](https://github.com/Jaum-Britto)  
-- E-mail: [inserir e-mail]  
+- E-mail: joao.g.pfaff@gmail.com  
 
 #### Yasmim do Valle  
 - GitHub: [inserir nome](inserir link)  
