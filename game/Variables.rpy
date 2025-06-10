@@ -1,6 +1,6 @@
 # Variáveis globais do jogo
 
-default sanidade = 100
+default sanidade = 70
 default max_pontos = 0
 default ap_points = 0
 
@@ -41,4 +41,20 @@ default persistent.m7 = False
 default persistent.m8 = False
 default persistent.m9 = False
 
+# Flags de CGs (Cenas Especiais)
+default persistent.CGS_1 = False
+default persistent.CGS_2 = False
+default persistent.CGS_3 = False
+default persistent.CGS_4 = False
+default persistent.CGS_5 = False
+default persistent.CGS_6 = False
+default persistent.olhos_no_escuro = False
+default persistent.Timeskip = False
+default persistent.scene_day2 = False
+default persistent.porao_max = False
+default persistent.caverna = False
+default persistent.floresta_profunda2 = False
+
 # Outras variáveis globais podem ser adicionadas aqui
+
+default persistent.scene_day2 = False

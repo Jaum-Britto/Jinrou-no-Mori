@@ -134,13 +134,16 @@ screen memory_mini_game():
     textbutton "Sair" action Show("memory_confirm", 
         text="Deseja realmente sair do minigame?", 
         yes_action=[Hide("memory_confirm"), Hide("memory_mini_game"), Show("gallery_minigames")], 
-        no_action=Hide("memory_confirm")) xalign 0.95 yalign 0.03
+        no_action=Hide("memory_confirm")) xalign 0.97 yalign 0.03
 
     # Botão Reiniciar com confirmação
     textbutton "Reiniciar" action Show("memory_confirm", 
         text="Deseja reiniciar a rodada?", 
         yes_action=[Hide("memory_confirm"), Function(reset_memory_game)], 
-        no_action=Hide("memory_confirm")) xalign 0.85 yalign 0.03
+        no_action=Hide("memory_confirm")) xalign 0.87 yalign 0.03
+
+    # Botão para mostrar as regras
+    textbutton "Regras" action Show("memory_rules_popup") xalign 0.72 yalign 0.03
 
     frame:
         background None

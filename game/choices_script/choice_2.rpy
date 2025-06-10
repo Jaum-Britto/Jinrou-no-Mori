@@ -13,7 +13,7 @@ label Left:
 
  mc "desculpe! eu não vi-"
 
- show M1
+ show M01
  with dissolve
 
  "É o cara que apareceu antes!"
@@ -21,7 +21,7 @@ label Left:
  "Ele quase parece em choque."
  mc "hm...você...?"
 
- hide M1
+ hide M01
  with dissolve
 
  show M2
@@ -32,15 +32,19 @@ label Left:
  hide M2
  with dissolve
 
- show M1
+ show M01
  with dissolve
 
  "Ele tenta manter contato visual, mas parece evitar meus olhos em cada palavra que sai de sua boca."
  "Dou um sorriso estranho de “com licença” e passo por ele. Eu o sinto olhando para mim por cima do ombro."
 
- hide M1
+ hide M01
  with dissolve
 
  "Isso foi estranho..."
+ "vejo que algo caiu do bolso dele..."
+
+ $ add_item(item_identidade)
+ "Pego o objeto e percebo que é uma identidade. O nome diz: Max."
 
  jump continuing3

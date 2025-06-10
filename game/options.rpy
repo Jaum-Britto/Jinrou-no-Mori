@@ -208,3 +208,9 @@ init python:
 
 # define build.itch_project = "renpytom/test-project"
 
+default persistent.unlocked_sprites = set()
+
+init python:
+    if not hasattr(persistent, "unlocked_sprites"):
+        persistent.unlocked_sprites = set()
+

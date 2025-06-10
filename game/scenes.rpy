@@ -3,11 +3,6 @@
 # ===========================================================================
 
 image scene_black = "Background_Black.png"
-image scene_credits = "creditos.png"
-image floresta_profunda = "CAMINHO/DA/IMAGEM/floresta_profunda.png"
-image floresta_profunda2 = "CAMINHO/DA/IMAGEM/floresta_profunda2.png"
-image porao_max = "CAMINHO/DA/IMAGEM/porao_max.png"
-image caverna = "CAMINHO/DA/IMAGEM/caverna.png"
 image Casa_1 = "bedroo_thesims_remake_evening_redraw_.png"
 image Casa_2 = "bedroo_thesims_remake_morning_redraw_.png"
 image Casa_3 = "bedroo_thesims_remake_morning_redraw_noeffect.png"
@@ -22,7 +17,6 @@ image Casa_11 = "mc_house_morning.png"
 image Casa_12 = "mc_house_night.png"
 image Loja_1 = "scenario.png"
 image Loja_2 = "middle_convenience store_max_cg.png"
-image scene_day2 = "SpecialFullScreen_Day2.png"
 image Visitas_1 = "max_guestroom_1_details_day.png"
 image Visitas_2 = "max_guestroom_1_details_night.png"
 image Closet_1 = "max_guestroom_1_details_night.png"
@@ -44,14 +38,16 @@ image CGS_4 = "max_jumpscaare_home.png"
 image CGS_5 = "middle_convenience store_max_cg2"
 image olhos_no_escuro = Movie(play="hallucinations_home.webm")
 image Timeskip = Movie(play="timeskip.webm")
-
+image scene_day2 = "SpecialFullScreen_Day2.png"
+image caverna = "images/cave.png"
+image CGS_6 = "images/wolf_skin.png"  
 
 # ===========================================================================
 # OVERLAYS / HUD / EFEITOS
 # ===========================================================================
 
-image sanity_low1 = "sanity low1.png"
-image sanity_low2 = "sanity low2.png"
+image sanity_low1 = "images/sanity_low1.png"
+image sanity_low2 = "images/sanity_low2.png"
 
 
 # ===========================================================================
@@ -60,5 +56,4 @@ image sanity_low2 = "sanity low2.png"
 
 image mao_direita = "images/mao_direita.png"
 image mao_esquerda = "images/mao_esquerda.png"
-
-
+image scene_credits = "creditos.png"

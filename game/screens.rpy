@@ -277,34 +277,31 @@ style choice_button is default:
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
 
-
 ## Quick Menu screen ###########################################################
 ##
 ## The quick menu is displayed in-game to provide easy access to the out-of-game
 ## menus.
-
 screen quick_menu():
 
-    ## Ensure this appears on top of other screens.
     zorder 100
 
     if quick_menu:
 
         hbox:
             style_prefix "quick"
-
+            spacing 2  # Menos espaço entre botões
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Load") action ShowMenu('load')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Voltar") action Rollback() text_size 10 xmaximum 60
+            textbutton _("Hist.") action ShowMenu('history') text_size 10 xmaximum 50
+            textbutton _("Pular") action Skip() alternate Skip(fast=True, confirm=True) text_size 10 xmaximum 50
+            textbutton _("Auto") action Preference("auto-forward", "toggle") text_size 10 xmaximum 50
+            textbutton _("Salvar") action ShowMenu('save') text_size 10 xmaximum 55
+            textbutton _("Carreg.") action ShowMenu('load') text_size 10 xmaximum 55
+            textbutton _("S. Ráp.") action QuickSave() text_size 10 xmaximum 55
+            textbutton _("C. Ráp.") action QuickLoad() text_size 10 xmaximum 55
+            textbutton _("Opções") action ShowMenu('preferences') text_size 10 xmaximum 55
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -322,6 +319,8 @@ style quick_button:
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    font "fonts/Nunito-Regular.ttf"
+    bold True
 
 
 ################################################################################
@@ -423,6 +422,9 @@ screen main_menu():
 
             #textbutton _("Start") action Start()
             imagebutton auto "gui/btn_start_%s.png" focus_mask True action Start ()
+            # Botão de debug para abrir o inventário
+            # textbutton "Inventário (Debug)" action Show("inventory_screen")
+
 
         else:
 
@@ -570,8 +572,8 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
                     transclude
 
     #use navigation
-    if title == _("Preferences") and not main_menu:
-        textbutton _("MENU PRINCIPAL"):
+    if title == _("Preferências") and not main_menu:
+        textbutton ("MENU PRINCIPAL"):
             style "return_button"
             action MainMenu()
             yalign 0.9    
@@ -827,12 +829,11 @@ style slot_button_text:
 ## themselves.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
-
 screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("Preferências"), scroll="viewport"):
 
         vbox:
 
@@ -843,25 +844,22 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Display")
-                        textbutton _("Window") action Preference("display", "window")
-                        textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                        label _("Modo de Tela")
+                        textbutton _("Janela") action Preference("display", "window")
+                        textbutton _("Tela Cheia") action Preference("display", "fullscreen")
 
                 vbox:
                     style_prefix "check"
-                    label _("Skip")
-                    textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("after choices", "toggle")
-                    textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                    label _("Pular")
+                    textbutton _("Ocultar Texto") action Preference("skip", "toggle")
+                    textbutton _("Após Escolhas") action Preference("after choices", "toggle")
+                    textbutton _("Efeitos") action InvertSelected(Preference("transitions", "toggle"))
 
                 vbox:
                     style_prefix "pref"
-                    label _("Idiomas")
+                    label _("Linguas")
                     textbutton _("Inglês") action Language ("english")
-                    textbutton _("Português") action Language (None) 
-
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
+                    textbutton _("Português") action Language ("portugues") 
 
             null height (4 * gui.pref_spacing)
 
@@ -871,49 +869,48 @@ screen preferences():
 
                 vbox:
 
-                    label _("Text Speed")
+                    label _("Velocidade do Texto")
 
                     bar value Preference("text speed")
 
-                    label _("Auto-Forward Time")
+                    label _("Passagem Automática")
 
                     bar value Preference("auto-forward time")
 
                 vbox:
 
                     if config.has_music:
-                        label _("Music Volume")
+                        label _("Volume da Música")
 
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
 
-                        label _("Sound Volume")
+                        label _("Volume do Som")
 
                         hbox:
                             bar value Preference("sound volume")
 
                             if config.sample_sound:
-                                textbutton _("Test") action Play("sound", config.sample_sound)
+                                textbutton _("Testar") action Play("sound", config.sample_sound)
 
 
                     if config.has_voice:
-                        label _("Voice Volume")
+                        label _("Volume da Voz")
 
                         hbox:
                             bar value Preference("voice volume")
 
                             if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
+                                textbutton _("Testar") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
 
-                        textbutton _("Mute All"):
+                        textbutton _("Silenciar Tudo"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
-
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -1291,19 +1288,25 @@ style confirm_button_text is gui_medium_button_text
 
 style confirm_frame:
     background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
-    padding gui.confirm_frame_borders.padding
+    padding (80, 40, 80, 40)   # padding: (left, top, right, bottom)
     xalign .5
     yalign .5
 
 style confirm_prompt_text:
+    color "#070101"
     textalign 0.5
     layout "subtitle"
+    size 36           # Reduz o tamanho da fonte (ajuste conforme necessário)
+    xmaximum 700      # Limita a largura máxima do texto
+    xalign 0.5
 
 style confirm_button:
     properties gui.button_properties("confirm_button")
+    
 
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
+    color "#070101"
 
 
 ## Skip indicator screen #######################################################
@@ -1723,89 +1726,120 @@ style slider_slider:
 ################################################################################
 
 screen hud:
-    # Um botão no canto superior esquerdo para abrir o inventário
+    zorder 9999
     frame:
         align (0.01, 0.01)
-        textbutton "Inventário" action ShowMenu("inventory_screen")
+        xmaximum 220
+        padding (10, 5)
+        textbutton ("Inventory" if _preferences.language == "english" else "Inventário") action ShowMenu("inventory_screen") text_size 32
 
 ################################################################################
-## Screen Galeria
-################################################################################
+screen sanidade_overlay():
+    zorder 5  # Defina um zorder menor que o do HUD
+    
+    # Mostrar o overlay apenas quando a sanidade estiver baixa (assumindo que você tenha uma variável para isso)
+    if sanidade < 30:  # Ajuste esse valor conforme necessário
+        add "sanity_low1" at transform:
+            alpha 0.7  # Transparência da imagem
+            block:
+                ease 2.0 alpha 0.3
+                ease 2.0 alpha 0.7
+                repeat
+    
+    # Se a sanidade estiver crítica, adicionar um segundo efeito
+    if sanidade < 15:  # Ajuste esse valor conforme necessário
+        add "sanity_low2" at transform:
+            alpha 0.5
+            block:
+                ease 1.5 alpha 0.2
+                ease 1.5 alpha 0.5
+                repeat
+
+# Registrar a tela como overlay para exibição automática
+init python:
+    config.overlay_screens.append("sanidade_overlay")
+
+
+#################################################################################
+## Gallery screen ##############################################################
+##
+## This screen is used to display the gallery, which contains images and
+
 screen gallery_main():
     tag menu
 
-    # Fundo artístico da galeria (adicione sua imagem de fundo)
-    add "images/gallery_background.png"  # Troque pelo caminho correto
+    add "images/gallery_bg_moldura.png" xpos 0 ypos 0
 
     frame:
-        background "#2228"  # Fundo translúcido para destacar o conteúdo
+        background None
         xalign 0.5
-        yalign 0.05
-        xsize 1000
-        ysize 700
+        yalign 0.5
+        xsize 900
+        ysize 440
 
         vbox:
             spacing 30
             xalign 0.5
 
-            text "Galeria" style "page_label_text" size 70 xalign 0.5 outlines [(2, "#000", 0, 0)]
+            # Título com fonte personalizada e centralizado no post-it
+            text _("GALERIA") style "page_label_text" size 80 xalign 0.5 ypos -115 outlines [(4, "#000", 0, 0)] font "fonts/Melted_Monster.ttf"
 
             grid 3 2:
-                align (0.5, 0.5)
+                align (0.5, 0.1)
                 spacing 40
 
-                # Exemplo de botões de categoria com miniaturas e efeito hover
+                # Botões das categorias
                 frame:
                     style_prefix "horror_slot"
-                    xsize 300
-                    ysize 200
+                    xsize 260
+                    ysize 160
                     button:
                         background "#fff2"
                         hover_background "#ffb70044"
-                        xsize 300
-                        ysize 200
+                        xsize 260
+                        ysize 160
                         action Show("gallery_finais")
                         add "images/icon.png" xalign 0.5 yalign 0.5 fit "contain"
-                        text "Finais" xalign 0.5 yalign 0.9 style "page_button" size 32 outlines [(1, "#000", 0, 0)]
+                        text _("Finais") xalign 0.5 yalign 0.9 style "page_button" size 28 outlines [(1, "#000", 0, 0)]
 
                 frame:
                     style_prefix "horror_slot"
-                    xsize 300
-                    ysize 200
+                    xsize 260
+                    ysize 160
                     button:
                         background "#fff2"
                         hover_background "#ffb70044"
-                        xsize 300
-                        ysize 200
+                        xsize 260
+                        ysize 160
                         action Show("gallery_personagens")
                         add "images/PropTest.png" xalign 0.5 yalign 0.5 fit "contain"
-                        text "Personagens" xalign 0.5 yalign 0.9 style "page_button" size 32 outlines [(1, "#000", 0, 0)]
+                        text _("Personagens") xalign 0.5 yalign 0.9 style "page_button" size 28 outlines [(1, "#000", 0, 0)]
 
                 frame:
                     style_prefix "horror_slot"
-                    xsize 300
-                    ysize 200
+                    xsize 260
+                    ysize 160
                     button:
                         background "#fff2"
                         hover_background "#ffb70044"
-                        xsize 300
-                        ysize 200
+                        xsize 260
+                        ysize 160
                         action Show("gallery_minigames")
                         add "images/ImgGaleria.png" xalign 0.5 yalign 0.5 fit "contain"
-                        text "Minigames" xalign 0.5 yalign 0.9 style "page_button" size 32 outlines [(1, "#000", 0, 0)]
+                        text _("Minigames") xalign 0.5 yalign 0.9 style "page_button" size 28 outlines [(1, "#000", 0, 0)]
 
-                # Espaços vazios para completar o grid
                 null
                 null
                 null
 
-            textbutton "Voltar" action Return() style "page_button" xalign 0.5 yalign 0.95
+            # Botão "Voltar" mais acima
+            textbutton _("VOLTAR") action Return() style "page_button" xalign 0.5 ypos -74
 
 screen gallery_personagens():
     tag menu
-    add "images/Outdated (N REMOVER)/adam gif.gif"
+    add "images/gallery_bg_moldura.png"
 
-    text "Personagens" style "page_label_text" size 80 xalign 0.5
+    text _("Personagens") style "page_label_text" size 60 xalign 0.52 ypos 50 
 
     grid 3 2:
         align (0.5, 0.5)
@@ -1825,7 +1859,7 @@ screen gallery_personagens():
                     background None
                     idle_foreground Solid("#00000000")
                     hover_foreground Solid("#00000040")
-                    add "images/apollo_onjob_smile.png" xalign 0.5 fit "contain" 
+                    add "images/Apollo/apollo_onjob_smile.png" xalign 0.5 fit "contain" 
 
                 text "Apollo" xalign 0.5 yalign 0.6 style "page_button"
 
@@ -1844,41 +1878,22 @@ screen gallery_personagens():
                     background None
                     idle_foreground Solid("#00000000")
                     hover_foreground Solid("#00000040")
-                    add "images/max_disguise.png" xalign 0.5 fit "contain"
+                    add "images/Max/max_disguise.png" xalign 0.5 fit "contain"
                     
                 text "Max" xalign 0.5 yalign 0.5 style "page_button" 
 
-        frame:
-            style_prefix "horror_slot"
-            xsize 300
-            ysize 200
-            vbox:
-                xalign 0.5
-                yalign 0.2
-                spacing 10
-
-                button:
-                    action Show("gallery_tia")
-                    xalign 0.5
-                    background None
-                    idle_foreground Solid("#00000000")
-                    hover_foreground Solid("#00000040")
-                    add "images/ta_da_cantina1.png" xalign 0.5 fit "contain"
-                
-                text "Tia da Cantina" xalign 0.5 style "page_button" 
-
-    textbutton "Voltar" action Show("gallery_main") style "page_button" xalign 0.5 yalign 0.95
+    textbutton _("Voltar") action Show("gallery_main") style "page_button" xalign 0.5 ypos 598
 
 screen gallery_apollo():
     tag menu
-    add "scene_black"
+    add "images/gallery_bg_moldura.png"
 
     vbox:
         spacing 10
         xalign 0.5
         yalign 0.05
 
-        text "Apollo - Galeria de Expressões" style "page_label_text"
+        text _("Apollo - Galeria de Expressoes") style "page_label_text"
 
         frame:
             xsize 600
@@ -1898,23 +1913,23 @@ screen gallery_apollo():
                         $ nome_persistente = "ap" + str(i)
                         $ nome_sprite = "AP" + str(i)
                         if getattr(persistent, nome_persistente):
-                            textbutton "Apollo - Expressão [i]":
+                            textbutton _("Apollo - Expressao [i]"):
                                 action Show("show_image_fullscreen", imagem=nome_sprite, voltar_para="gallery_apollo")
                                 style "page_button"
                                 xalign 0.5
 
-    textbutton "Voltar" action Show("gallery_personagens") style "page_button" xalign 0.5 yalign 0.95
+    textbutton _("Voltar") action Show("gallery_personagens") style "page_button" xalign 0.5 ypos 600
 
 screen gallery_max():
     tag menu
-    add "scene_black"
+    add "images/gallery_bg_moldura.png"
 
     vbox:
         spacing 10
         xalign 0.5
         yalign 0.05
 
-        text "Max - Galeria de Expressões" style "page_label_text"
+        text _("Max - Galeria de Expressoes") style "page_label_text"
 
         frame:
             xsize 600
@@ -1934,34 +1949,22 @@ screen gallery_max():
                         $ nome_persistente = "m" + str(i)
                         $ nome_sprite = "M" + str(i)
                         if getattr(persistent, nome_persistente):
-                            textbutton "Max - Expressão [i]":
+                            textbutton _("Max - Expressao [i]"):
                                 action Show("show_image_fullscreen", imagem=nome_sprite, voltar_para="gallery_max")
                                 style "page_button"
                                 xalign 0.5
 
-    textbutton "Voltar" action Show("gallery_personagens") style "page_button" xalign 0.5 yalign 0.95
-
-screen gallery_tia():
-    tag menu
-    add "scene_black"
-
-    vbox:
-        align (0.5, 0.1)
-
-        text "Tia da Cantina" style "page_label_text"
-        text "Em construção..." xalign 0.5
-
-        textbutton "Voltar" action Show("gallery_personagens") style "page_button"
+    textbutton _("Voltar") action Show("gallery_personagens") style "page_button"  xalign 0.5 ypos 600
 
 screen gallery_minigames():
     tag menu
-    add "scene_black"
+    add "images/gallery_bg_moldura.png"
 
     vbox:
         align (0.5, 0.1)
         spacing 30
 
-        text "MiniGames" style "page_label_text" size 60 xalign 0.5
+        text _("Mini-Games") style "page_label_text" size 60 xalign 0.52 ypos 20 
 
         frame:
             xalign 0.5
@@ -1971,61 +1974,34 @@ screen gallery_minigames():
             vbox:
                 spacing 20
 
-                text "Selecione um minigame:" size 32 xalign 0.5
+                text _("Selecione um minigame:") size 32 xalign 0.5
 
-                textbutton "Jogo da Memória":
+                textbutton _("Jogo da Memoria"):
                     xalign 0.5
                     action [Hide("gallery_minigames"), Jump("mini_game")]
 
-                textbutton "Minigame Futuro":
+                textbutton _("Em desenvolvimento"):
                     xalign 0.5
                    
 
-        textbutton "Voltar" action Show("gallery_main") style "page_button" xalign 0.5 yalign 0.95
+        textbutton _("Voltar") action Show("gallery_main") style "page_button" xalign 0.5 ypos 190
 
 screen gallery_finais():
     tag menu
-    add "scene_black"
+    add "images/gallery_bg_moldura.png"
 
     vbox:
         align (0.5, 0.1)
 
-        text "Em construção..." xalign 0.5
+        text _("Em desenvolvimento") xalign 0.5
 
-        textbutton "Voltar" action Show("gallery_main") style "page_button"
+        textbutton _("Voltar") action Show("gallery_main") style "page_button" xalign 0.5 ypos 502
 
 screen show_image_fullscreen(imagem, voltar_para=None):
     tag menu
     add imagem
 
-    textbutton "Voltar" action Hide("show_image_fullscreen"), Show(voltar_para) style "page_button" xalign 0.95 yalign 0.95
-
-style page_label is gui_label
-style page_label_text is gui_label_text
-style page_button is gui_button
-style page_button_text is gui_button_text
-
-style slot_button is gui_button
-style slot_button_text is gui_button_text
-style slot_time_text is slot_button_text
-style slot_name_text is slot_button_text
-
-style page_label:
-    xpadding 50
-    ypadding 3
-
-style page_label_text:
-    textalign 0.5
-    layout "subtitle"
-    hover_color gui.hover_color
-
-style page_button:
-    properties gui.button_properties("page_button")
-
-style page_button_text:
-    properties gui.text_properties("page_button")
-
-
+    textbutton _("Voltar") action Hide("show_image_fullscreen"), Show(voltar_para) style "page_button" xalign 0.95 yalign 0.95
 ## Inventory screen ############################################################
 ##
 ## This screen displays the inventory of the player, allowing them to use or
@@ -2037,8 +2013,29 @@ screen inventory_screen:
     modal True
     zorder 200
 
-    # Fundo do inventário
-    add "images/inventario/inventarioptbr.png" fit "contain"
+    if _preferences.language == "english":
+        add "images/inventario/inventario_eng.png" fit "contain"
+    else:
+        add "images/inventario/inventario_ptbr.png" fit "contain"
+
+    # Substitua hotspot por imagebutton transparente
+    button:
+        xpos 840
+        ypos 20
+        xsize 120
+        ysize 80
+        background None
+        hover_background "#ffb70044"         
+        action Show("afinidade_fala", personagem="Apollo")
+
+    button:
+        xpos 810
+        ypos 130
+        xsize 130
+        ysize 80
+        background None
+        hover_background "#ffb70044"
+        action Show("afinidade_fala", personagem="Max")
 
     # Variável temporária para o item selecionado
     default selected_item = inventory[0] if inventory else None
@@ -2112,26 +2109,69 @@ screen inspect_item_screen(item):
     modal True
     zorder 300
 
-    # Fundo do inventário permanece visível
-    add "images/inventario/inventarioptbr.png" fit "contain"
-
-    # Imagem ampliada e centralizada
     if item and hasattr(item, "image"):
         add item.image xpos 0.5 ypos 0.5 xanchor 0.5 yanchor 0.5 zoom 1.5
 
-    # Nome e descrição do item
+    if item:
+        frame:
+            xalign 0.5
+            yalign 0.85
+            background "#ffffffcc"
+            padding (20, 10)
+            vbox:
+                text item.name size 32 bold True xalign 0.5
+                text item.description size 22 xalign 0.5
+
+        textbutton "Fechar" action Hide("inspect_item_screen") xpos 550 ypos 620 text_color "#000"
+    else:
+        frame:
+            xalign 0.5
+            yalign 0.85
+            background "#ffffffcc"
+            padding (20, 10)
+            vbox:
+                text "Nenhum item selecionado." size 32 bold True xalign 0.5
+
+        textbutton "Fechar" action Hide("inspect_item_screen") xpos 312 ypos 645 text_color "#000" 
+
+## AfinidadeInventario screen ############################################################
+# Mostra as afinidades com cada personagem ao clicar no botão representado por cada personagem.
+#
+screen afinidade_fala(personagem):
+    modal True
+    zorder 300
     frame:
         xalign 0.5
-        yalign 0.85
-        background "#ffffffcc"
-        padding (20, 10)
+        yalign 0.5
+        xsize 700
+        ysize 220
+        padding (30, 30)
         vbox:
-            text item.name size 32 bold True xalign 0.5
-            text item.description size 22 xalign 0.5
+            spacing 10
+            xalign 0.5
+            yalign 0.5
+            if personagem == "Apollo":
+                if ap_points == 0:
+                    text "Ainda não conheço Apollo. Quem será ele?" size 22 xmaximum 500 xalign 0.5
+                elif ap_points > 0 and ap_points <= 30:
+                    text "Sinto que minha relação com Apollo está mudando... Será que posso confiar nele?" size 22 xmaximum 500 xalign 0.5
+                else:
+                    text "Apollo se tornou alguém importante para mim. Acho que posso confiar nele de verdade." size 22 xmaximum 500 xalign 0.5
+                text "Afinidade com Apollo: [ap_points]" size 20 color "#0b5d2f" xalign 0.5
+            elif personagem == "Max":
+                if max_pontos == 0:
+                    text "Ainda não conheço Max. Ele parece um mistério." size 22 xmaximum 500 xalign 0.5
+                elif max_pontos > 0 and max_pontos <= 30:
+                    text "Max é misterioso, mas sinto uma conexão estranha com ele." size 22 xmaximum 500 xalign 0.5
+                else:
+                    text "Agora que conheço Max melhor, vejo que ele é mais do que aparenta." size 22 xmaximum 500 xalign 0.5
+                text "Afinidade com Max: [max_pontos]" size 20 color "#a90000" xalign 0.5
+            textbutton "FECHAR" action Hide("afinidade_fala") xalign 0.5
 
-    # Botão para fechar o zoom
-    textbutton "Fechar" action Hide("inspect_item_screen") xpos 312 ypos 645
 
+## MiniGameRules screen ############################################################
+# Mostra as regas do minigame e tbm tem a função de não mostrar novamente.
+#
 screen memory_rules_popup():
     modal True
     frame:
@@ -2147,3 +2187,4 @@ screen memory_rules_popup():
                 spacing 40
                 textbutton "Não mostrar novamente" action [SetField(persistent, "show_memory_rules", False), Return(), Show("memory_mini_game")] style "page_button"
                 textbutton "OK" action [Return(), Show("memory_mini_game")] style "page_button"
+

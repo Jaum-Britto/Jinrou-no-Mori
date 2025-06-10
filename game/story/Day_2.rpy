@@ -44,17 +44,16 @@ label investigate_noise:
             "Você se aproxima e vê... um coelho morto. Suas entranhas estão expostas."
             mc "Isso... isso são tripas?"
             "A visão é horrível. Você se afasta, enjoado, tentando processar o que acabou de ver."
-            scene scene_black
-            show olhos_no_escuro at center
+            show scene_black
             "Você sente que há algo te observando na escuridão..."
-            hide Casa_9
-            hide Casa_7
-            hide olhos_no_escuro
+            "A sensação é tão intensa que você quase pode sentir os olhos sobre você."
             hide scene_black
             "Você tenta se acalmar, mas a sensação de estar sendo vigiado é insuportável."
             "Você decide que é melhor voltar para o quarto e trancar a porta."
             "Você não consegue parar de pensar no que aconteceu. O coelho... e a sensação de estar sendo observado."
             $ alterar_sanidade(-30)  # Reduz a sanidade
+            hide Casa_9
+            hide Casa_7
             jump day_2_continue
         "Voltar para o quarto e trancar a porta.":
             hide Casa_7
@@ -103,7 +102,7 @@ label avoid_kitchen:
     "Você não tem coragem de voltar para a cozinha agora."
     "O pensamento de ver aquele coelho morto novamente é demais para você."
     "Você decide sair para tomar um ar."
-    $ alterar_sanidade(-10)  # Perde sanidade por evitar a situação
+    $ alterar_sanidade(+10)  # Ganha sanidade por evitar a situação
     jump visit_apollo
 
 label visit_apollo:
@@ -111,38 +110,45 @@ label visit_apollo:
     show Casa_11
     "Você está prestes a sair de casa quando ouve alguém se aproximando da porta."
     show AP4
+    $ persistent.unlocked_sprites.add("AP4")
     ap "Ah... eu estava prestes a bater..."
     hide AP4
     show AP8
+    $ persistent.unlocked_sprites.add("AP8")
     mc "Apollo? O que você está fazendo aqui tão cedo?"
     hide AP8
     show AP6
+    $ persistent.unlocked_sprites.add("AP6")
     ap "Eu... ouvi alguns barulhos estranhos ontem à noite. Queria ver se estava tudo bem."
     hide AP6
 
     # Escolha: Contar sobre o coelho ou não
     menu:
         "Contar sobre o coelho.":
-            $ ap_points += 5  # Sinceridade aumenta afinidade
+            $ add_ap_points(+5)  # Sinceridade aumenta afinidade
             jump tell_about_rabbit
         "Não contar.":
-            $ ap_points -= 2  # Esconder reduz afinidade
+            $ add_ap_points(-5)  # Esconder reduz afinidade
             jump dont_tell_about_rabbit
 
 label tell_about_rabbit:
     mc "Na verdade, não... eu encontrei algo muito estranho ontem à noite."
     mc "Havia... um coelho morto na minha cozinha."
     show AP5
+    $ persistent.unlocked_sprites.add("AP5")
     ap "O quê? Um coelho morto?"
     mc "Sim, não sei como ele foi parar lá."
     hide AP5
     show AP9
+    $ persistent.unlocked_sprites.add("AP9")
     ap "Isso é estranho... você tem certeza de que era um coelho?"
     hide AP9
     show AP8
+    # "AP8" já foi adicionado
     mc "Sim, eu praticamente o raspei do chão."
     hide AP8
     show AP9
+    # "AP9" já foi adicionado
     ap "Algo muito estranho está acontecendo..."
     hide AP9
     jump apollo_concern
@@ -150,26 +156,29 @@ label tell_about_rabbit:
 label dont_tell_about_rabbit:
     mc "Ah, só ouvi alguns barulhos estranhos, nada demais."
     show AP8
+    # "AP8" já foi adicionado
     "Apollo parece desconfiado, mas não insiste no assunto."
     hide AP8
     show AP9
+    # "AP9" já foi adicionado
     ap "Hum... certo. Mas se algo estranho acontecer de novo, me avise, ok?"
     hide AP9
     jump apollo_concern
 
 label apollo_concern:
     show AP3
+    $ persistent.unlocked_sprites.add("AP3")
     ap "Olha, eu realmente acho que você deveria passar a noite na minha casa hoje."
     mc "Hã...? O que você quer dizer?"
     ap "Não sei... só tenho um mau pressentimento sobre isso tudo. Não me parece natural."
     hide AP3
     menu:
         "Aceitar o convite.":
-            $ ap_points += 10  # Aceitar aumenta bastante a afinidade
+            $ add_ap_points(+10)  # Aceitar aumenta bastante a afinidade
             mc "Talvez você tenha razão. Pode ser uma boa ideia."
             jump go_to_apollo_house
         "Recusar.":
-            $ ap_points -= 5  # Recusar reduz afinidade
+            $ add_ap_points(-10)  # Recusar reduz afinidade
             mc "Eu agradeço, Apollo, mas acho que posso lidar com isso."
             jump stay_home
 
@@ -177,7 +186,8 @@ label go_to_apollo_house:
     "Você decide ir para a casa de Apollo, tentando se sentir mais seguro."
     hide Casa_11
     stop music
-    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg") from _call_show_ending
+    call show_ending("images/SpecialFullScreen_Day2.png", "audio/melancolic_howl.ogg") from _call_show_ending
+    $ persistent.scene_day2 = True
     jump Rota_Apollo
     # Continuação...
 
@@ -185,7 +195,8 @@ label stay_home:
     "Você decide ficar em casa, mesmo com a preocupação crescente."
     hide Casa_11
     stop music
-    call show_ending("images/lobo_floresta.png", "audio/sua_musica_final_dia2.ogg") from _call_show_ending_1
+    call show_ending("images/SpecialFullScreen_Day2.png", "audio/melancolic_howl.ogg") from _call_show_ending_1
+    $ persistent.scene_day2 = True
     jump day_3
     # Continuação...
 

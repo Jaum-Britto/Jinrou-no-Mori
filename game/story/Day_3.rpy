@@ -63,19 +63,19 @@ label day_3:
         "O que fazer com a árvore?"
         "Marcar árvore.":
             $ alterar_sanidade(-10)
-            $ max_pontos += 2  # Pequena afinidade por cautela
+            $ add_max_pontos += 2  # Pequena afinidade por cautela
             $ marcou_arvore = True
             "Quero ter certeza de onde estou e de onde vim, é melhor marcar a árvore de alguma forma."
             "Pego minha chave de casa e faço um risco na casca da árvore, fazendo uma seta apontando a direção da rua."
             "Isso provavelmente é suficiente."
         "Eu vou me lembrar.":
             $ alterar_sanidade(10)
-            $ max_pontos -= 1  # Menos afinidade por confiar só em si
+            $ add_max_pontos -= 1  # Menos afinidade por confiar só em si
             $ marcou_arvore = False
             "Essa árvore parece bem marcante pra mim, e como eu disse, esse bosque não é tão grande, não tem um risco real de me perder aqui."
 
     # Floresta profunda
-    scene floresta_profunda
+    show scene_black
     "Ando pelo que parece ter sido poucos minutos e o cenário parece ter mudado por completo."
     "As árvores ficam mais altas e é difícil ver o céu…"
     "Por que está tão escuro? Não está de manhã?"
@@ -147,7 +147,6 @@ label floresta_loop:
     "A esse ponto é melhor apenas continuar me movendo."
     "…"
     "Por que inventei de entrar nesse lugar?"
-    scene floresta_profunda2
     "Esse som, esse cheiro… esse silêncio…"
     # Aqui pode entrar um gif de alucinação, se desejar
     "É muito parecido com o que vi no meu quarto ontem…"
@@ -160,7 +159,7 @@ label floresta_loop:
     "…"
     "Esquisitas pra cacete."
     # Fade para preto
-    scene scene_black
+    show show_black
     "..."
     "..."
     # Timeskip para o porão do Max
@@ -169,8 +168,10 @@ label floresta_loop:
     $ renpy.pause(2.0)
     hide Timeskip
     
-    scene porao_max
-    "Hã? O que?"
+    # Exemplo de transição para o porão do Max:
+    show porao_max_noite
+    show M01 at center
+    $ persistent.unlocked_sprites.add("M01")
     "Olho ao meu redor e não estou mais na floresta."
     "Isso parece uma casa, mas definitivamente não é a minha."
     "..."
@@ -195,7 +196,7 @@ label floresta_loop:
         "O que fazer?"
         "Gritar.":
             $ alterar_sanidade(5)
-            $ max_pontos -= 20  # Gritar assusta Max, reduz afinidade
+            $ add_max_pontos -= 20  # Gritar assusta Max, reduz afinidade
             mc "AAAAAAAAAAAAAAAAAAAAAAAAAAH!"
             "Antes que eu pudesse pensar em algo pra dizer, um grito estridente escapa da minha garganta."
             "Ele se afasta e imediatamente cobre as orelhas com as mãos…"
@@ -203,21 +204,21 @@ label floresta_loop:
             $ alterar_sanidade(-10)
             jump interrogatorio_max
         "\"O que está acontecendo?\"":
-            $ max_pontos -= 10  # Confrontar reduz afinidade
+            $ add_max_pontos -= 10  # Confrontar reduz afinidade
             mc "Quem é você? O-o que você quer? O que está acontecendo!?"
             "Ele parece ter ficado bem desorientado com as perguntas."
             max "…não pense muito nisso."
             max "Você deve ficar okay, eu acho…"
             jump interrogatorio_max
         "\"Me desamarre!\"":
-            $ max_pontos -= 5  # Exigir reduz afinidade
+            $ add_max_pontos -= 5  # Exigir reduz afinidade
             $ alterar_sanidade(-10)
             mc "Me desamarre agora!"
             max "…"
             max "Não."
             jump interrogatorio_max
         "Não dizer nada.":
-            $ max_pontos += 10  # Calma aumenta afinidade
+            $ add_max_pontos += 10  # Calma aumenta afinidade
             $ alterar_sanidade(-10)
             "Eu fico em silêncio por um momento, quase paralisado."
             "Nós ficamos só nos encarando por longos segundos…"
@@ -232,7 +233,7 @@ label interrogatorio_max:
     menu:
         "Se apresentar?"
         "Se apresentar.":
-            $ max_pontos += 10  # Sinceridade aumenta afinidade
+            $ add_max_pontos += 10  # Sinceridade aumenta afinidade
             mc "O meu é [povname]."
             "A calda dele se mexe com animação e um pouco de surpresa."
             max "Sim, exatamente…"
@@ -241,7 +242,7 @@ label interrogatorio_max:
             jump proximo_evento
         "Não dizer nada.":
             $ alterar_sanidade(-10)
-            $ max_pontos -= 5  # Frieza reduz afinidade
+            $ add_max_pontos -= 5  # Frieza reduz afinidade
             "Ele realmente espera que dizer isso vai simplesmente resetar tudo o que aconteceu?"
             "O que ele acha que vai conseguir com isso?"
             "Não acho que seja seguro dar qualquer informação pra-"
@@ -249,9 +250,9 @@ label interrogatorio_max:
             jump proximo_evento
 
 label proximo_evento:
-    if max_pontos < 30:
+    if add_max_pontos < 30:
         jump max_baixa_afinidade
-    elif max_pontos == 30:
+    elif add_max_pontos == 30:
         jump max_media_afinidade
     else:
         jump max_alta_afinidade

@@ -1,7 +1,7 @@
 define m = Character('Max',color="#a90000", who_font = "fonts/FOT-Seurat Pro B.ttf", window_background= "gui/a.png")
 define s = Character('???',color="#5d0000", who_font = "fonts/FOT-Seurat Pro B.ttf", window_background= "gui/a.png")
 
-image M1 = im.Scale("images/Max/max_disguise.png", 433, 621)
+image M01 = im.Scale("images/Max/max_disguise.png", 433, 621)
 image M2 = im.Scale("images/Max/max_disguise_talking.png", 433, 621)
 image M3 = im.Scale("images/Max/max_disguised_surprise.png", 433, 621)
 image M4 = im.Scale("images/Max/max_stunned.png", 653, 791)

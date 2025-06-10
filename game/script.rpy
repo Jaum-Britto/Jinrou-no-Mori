@@ -7,666 +7,676 @@
 
 #Introduce the game in the script area.
 
+# Inicialização do set persistente (pode mover para options.rpy)
+init python:
+    if not hasattr(persistent, "unlocked_sprites"):
+        persistent.unlocked_sprites = set()
+
 # The game starts here.
 
 label start:
- scene scene_black
-
- $ povname = renpy.input("Escolha o seu Nome:", length = 6)
- $ povname = povname.strip()
- if not povname:
-   $ povname = "Sam"
- $ add_item(item_enroladinho)
- $ add_item(item_folha)
- $ add_item(item_capsulas)
- $ add_item(item_identidade)
-
- #isso para a música
- stop music
- jump day_1
+    show screen sanidade_overlay
+    $ suppress_overlay = False
+    scene scene_black
+    $ povname = renpy.input("Escolha o seu Nome:", length = 6)
+    $ povname = povname.strip()
+    if not povname:
+        $ povname = "Sam"
+    #isso para a música
+    stop music
+    jump day_1
 
 label day_1:  
- show text "{size=100}Dia 1{/size}" at truecenter with dissolve
- pause 2
- hide text with fade
+    show text "{size=100}Dia 1{/size}" at truecenter with dissolve
+    pause 2
+    hide text with fade
 
- play music "audio/119402__kyster__nice-forrest-ambience.ogg"volume 50
- show screen hud
- #isso mostra a cena
- scene Casa_5
- with dissolve
- 
- mc "Mais um dia de trabalho terminou. Finalmente, um pouco de descanso..."
- mc "Pelo menos até o próximo projeto..."
+    play music "audio/119402__kyster__nice-forrest-ambience.ogg" volume 50
+    show screen hud
+    #isso mostra a cena
+    scene Casa_5
+    with dissolve
 
- #isso esconde a cena e sprites
- hide Casa_5
+    mc "Mais um dia de trabalho terminou. Finalmente, um pouco de descanso..."
+    mc "Pelo menos até o próximo projeto..."
 
- #pode ser usado também para mostrar cenas e sprites
- show scene_black
+    #isso esconde a cena e sprites
+    hide Casa_5
 
- "Entro em contato com o cliente para mostrar o projeto finalizado..."
- "5 páginas de um site para um abrigo de animais."
- "Tudo projetado com muito cuidado por mim..."
- "......"
- "Olho para a janela enquanto espero pela resposta do cliente..."
- "O tempo realmente voa, quero dizer, já era tarde esta manhã quando sentei aqui para trabalhar..."
- "Eu nem percebi que pulei o almoço."
- "*Ronca*"
- mc "...."
- mc "Bem, agora percebi..."
- "Meu estômago ronca..."
- "De repente, sinto como se não comesse há dias..."
- "Não pensei que estaria com tanta fome, mas também, né?"
- "Tomei um café da manhã simples e pulei o almoço..."
- "Talvez eu pudesse fazer um lanche na loja de conveniência. Tem um bom por aqui, embora eu costume ir lá fazer compras, sei que tem uns petiscos bem gostosos."
- "Talvez eu pudesse fazer as duas coisas dessa vez..."
- "Dois coelhos, numa cajadada só!!!"
+    #pode ser usado também para mostrar cenas e sprites
+    show scene_black
 
- show Casa_10
- with dissolve
+    "Entro em contato com o cliente para mostrar o projeto finalizado..."
+    "5 páginas de um site para um abrigo de animais."
+    "Tudo projetado com muito cuidado por mim..."
+    "......"
+    "Olho para a janela enquanto espero pela resposta do cliente..."
+    "O tempo realmente voa, quero dizer, já era tarde esta manhã quando sentei aqui para trabalhar..."
+    "Eu nem percebi que pulei o almoço."
+    "*Ronca*"
+    mc "...."
+    mc "Bem, agora percebi..."
+    "Meu estômago ronca..."
+    "De repente, sinto como se não comesse há dias..."
+    "Não pensei que estaria com tanta fome, mas também, né?"
+    "Tomei um café da manhã simples e pulei o almoço..."
+    "Talvez eu pudesse fazer um lanche na loja de conveniência. Tem um bom por aqui, embora eu costume ir lá fazer compras, sei que tem uns petiscos bem gostosos."
+    "Talvez eu pudesse fazer as duas coisas dessa vez..."
+    "Dois coelhos, numa cajadada só!!!"
 
- "Saio de casa e caminho pela vizinhança, em direção à loja..."
- "Não há muito para ver por aqui, exceto o sorriso amigável dos poucos vizinhos que tenho..."
- "O número de pessoas que se mudaram daqui foi a razão pela qual eu posso me dar ao luxo de viver aqui, então eu deveria estar grato por isso..."
+    show Casa_10
+    with dissolve
 
- hide Casa_10
- with dissolve
+    "Saio de casa e caminho pela vizinhança, em direção à loja..."
+    "Não há muito para ver por aqui, exceto o sorriso amigável dos poucos vizinhos que tenho..."
+    "O número de pessoas que se mudaram daqui foi a razão pela qual eu posso me dar ao luxo de viver aqui, então eu deveria estar grato por isso..."
 
- stop music
- 
- #isso toca a musica
- play music "audio/657265__ho52nest__wellcome-supermarket-background-music.ogg"volume 50
+    hide Casa_10
+    with dissolve
 
- show Loja_2
- with dissolve
+    stop music
 
- "Chego à loja bem rápido, o tempo sempre voa quando estou perdido em pensamentos, talvez isso se aplique também às distâncias..."
- "A loja está quase completamente deserta. Sou só eu, o caixa da frente e o do café..."
- "*Ronca*"
- "..."
- "É melhor eu pegar esse lanche de uma vez..."
- "Ando em direção à pequena área do café nos fundos da loja, anotando mentalmente todas as coisas que preciso reabastecer quando terminar de comer..."
+    #isso toca a musica
+    play music "audio/657265__ho52nest__wellcome-supermarket-background-music.ogg" volume 50
 
- hide Loja_2
- with dissolve
+    show Loja_2
+    with dissolve
 
- show Loja_1
- with dissolve
- 
- "Assim que chego ao balcão, sou recebido com um sorriso familiar."
+    "Chego à loja bem rápido, o tempo sempre voa quando estou perdido em pensamentos, talvez isso se aplique também às distâncias..."
+    "A loja está quase completamente deserta. Sou só eu, o caixa da frente e o do café..."
+    "*Ronca*"
+    "..."
+    "É melhor eu pegar esse lanche de uma vez..."
+    "Ando em direção à pequena área do café nos fundos da loja, anotando mentalmente todas as coisas que preciso reabastecer quando terminar de comer..."
 
- show AP4
- with dissolve
+    hide Loja_2
+    with dissolve
 
- #povname é a definição da variável de escolha de nome
- ap "[povname]! Faz muito tempo que não te vejo, né?"
+    show Loja_1
+    with dissolve
 
- hide AP4
- with dissolve
+    "Assim que chego ao balcão, sou recebido com um sorriso familiar."
 
- show AP13
- with dissolve
+    show AP4
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP4")
 
- "É o Apollo..."
- "Um velho amigo. Ele costumava ser meu colega de classe no ensino médio..."
- "Ele sempre esteve ao meu lado desde que nos conhecemos. De alguma forma, nunca nos distanciamos realmente. Na verdade, eu nunca teria ouvido falar deste lugar se não fosse por ele..."
+    #povname é a definição da variável de escolha de nome
+    ap "[povname]! Faz muito tempo que não te vejo, né?"
 
- hide AP13
- with dissolve
+    hide AP4
+    with dissolve
 
- $ persistent.ap1 = True
- $ persistent.ap2 = True
- $ persistent.ap3 = True
- $ persistent.ap4 = True
- $ persistent.ap5 = True
- $ persistent.ap6 = True
- $ persistent.ap7 = True
- $ persistent.ap8 = True
- $ persistent.ap9 = True
- $ persistent.ap10 = True
- $ persistent.ap11 = True
- $ persistent.ap12 = True
- $ persistent.ap13 = True
- $ persistent.ap14 = True
- $ persistent.ap15 = True
- $ persistent.ap16 = True
- $ persistent.ap17 = True
- $ persistent.ap18 = True
- $ persistent.ap19 = True
- $ persistent.ap20 = True
- $ persistent.ap21 = True
- $ persistent.ap22 = True
- $ persistent.ap24 = True
+    show AP13
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP13")
 
- show AP3
- with dissolve
+    "É o Apollo..."
+    "Um velho amigo. Ele costumava ser meu colega de classe no ensino médio..."
+    "Ele sempre esteve ao meu lado desde que nos conhecemos. De alguma forma, nunca nos distanciamos realmente. Na verdade, eu nunca teria ouvido falar deste lugar se não fosse por ele..."
 
- mc "Apollo! Ótimo ver você! Eu não sabia que você estaria aqui."
- ap "uh...por que não? Eu trabalho aqui..."
- "Ele ri como se isso fosse óbvio..."
- mc "Sim, bem, agora eu sei disso."
+    hide AP13
+    with dissolve
 
- hide AP3
- with dissolve
+    show AP3
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP3")
 
- show AP7
- with dissolve
+    mc "Apollo! Ótimo ver você! Eu não sabia que você estaria aqui."
+    ap "uh...por que não? Eu trabalho aqui..."
+    "Ele ri como se isso fosse óbvio..."
+    mc "Sim, bem, agora eu sei disso."
 
- "Eu dou uma risada e ele sorri para mim confuso."
+    hide AP3
+    with dissolve
 
- hide AP7
- with dissolve
+    show AP7
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP7")
 
- show AP3
- with dissolve
+    "Eu dou uma risada e ele sorri para mim confuso."
 
- ap "Só agora? Eu te disse isso quando você se mudou para cá."
- mc "hein...?"
- "Isto é estranho..."
- "Ele me contou?"
- "Eu olho para ele..."
- "O olhar confiante e presunçoso se transforma em incerteza..."
- ap "Quer dizer..." 
- ap "Eu queria te contar..." 
- ap "Eu acho..."
- "Tenho certeza que ele pretendia..."
- "Eu rio..."
- "*RONCA*"
+    hide AP7
+    with dissolve
 
- hide AP3
- with dissolve
+    show AP3
+    with dissolve
+    # Não precisa adicionar novamente "AP3", já foi adicionado
 
- show AP11
- with dissolve
+    ap "Só agora? Eu te disse isso quando você se mudou para cá."
+    mc "hein...?"
+    "Isto é estranho..."
+    "Ele me contou?"
+    "Eu olho para ele..."
+    "O olhar confiante e presunçoso se transforma em incerteza..."
+    ap "Quer dizer..." 
+    ap "Eu queria te contar..." 
+    ap "Eu acho..."
+    "Tenho certeza que ele pretendia..."
+    "Eu rio..."
+    "*RONCA*"
 
- "Sou só eu ou meu estômago, está ficando cada vez mais barulhento?"
+    hide AP3
+    with dissolve
 
- hide AP11
- with dissolve
+    show AP11
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP11")
 
- show AP7
- with dissolve
+    "Sou só eu ou meu estômago, está ficando cada vez mais barulhento?"
 
- "Apollo me encara por um momento antes de soltar uma risada suave..."
+    hide AP11
+    with dissolve
 
- hide AP7
- with dissolve
+    show AP7
+    with dissolve
+    # "AP7" já foi adicionado
 
- show AP2
- with dissolve
+    "Apollo me encara por um momento antes de soltar uma risada suave..."
 
- ap "bem, eu trabalho aqui." 
- ap "Então, como posso ajudá-la, senhora?"
+    hide AP7
+    with dissolve
 
- hide AP2
- with dissolve
+    show AP2
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP2")
 
- show AP6
- with dissolve
+    ap "bem, eu trabalho aqui." 
+    ap "Então, como posso ajudá-la, senhora?"
 
- "Seus lábios formam um sorriso irônico quando ele diz a última palavra."
+    hide AP2
+    with dissolve
 
- #Teste para adicionar item
- label after_meeting_apollo:
-   $ add_item(PropTeste)
-   mc "Agora tenho um cachorro-quente no meu inventário."
+    show AP6
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP6")
 
- #stop music
+    "Seus lábios formam um sorriso irônico quando ele diz a última palavra."
+    #stop music
 
- #Primeira escolha.
+    #Primeira escolha.
 
- menu:
-   "Você é tão idiota":
-      $ ap_points += 5
-      jump dumb
-   "O atendimento aqui é incrível, bom senhor":
-      $ ap_points += 10
-      jump drama
+    menu:
+        "Você é tão idiota":
+            $ add_ap_points(-5)
+            jump dumb
+        "O atendimento aqui é incrível, bom senhor":
+            $ add_ap_points(+10)
+            jump drama
+
 #Teste de deletar item
 label some_other_part_of_the_game:
-    $ remove_item(PropTeste)  # Remove o cachorro-quente
-    mc "Eu comi o cachorro-quente."
+    $ remove_item(Enroladinho)  # Remove o Enroladinho
+    mc "Eu comi o Enroladinho."
 
 
 label continuing:
 
- show Loja_1
- show AP6
- with dissolve
+    show Loja_1
+    show AP6
+    with dissolve
+    # "AP6" já foi adicionado
 
- ap "Enfim, o que será hoje?"
+    ap "Enfim, o que será hoje?"
 
- hide AP6
- with dissolve
+    hide AP6
+    with dissolve
 
- show AP8
- with dissolve
+    show AP8
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP8")
 
- mc "Definitivamente, algo grande..."
+    mc "Definitivamente, algo grande..."
 
- hide AP8
- with dissolve
+    hide AP8
+    with dissolve
 
- show AP9
- with dissolve
+    show AP9
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP9")
 
- mc "Estou com muita fome!!!" 
- mc "Alguma recomendação?"
+    mc "Estou com muita fome!!!" 
+    mc "Alguma recomendação?"
 
- hide AP9
- with dissolve
+    hide AP9
+    with dissolve
 
- show AP10
- with dissolve
+    show AP10
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP10")
 
- ap "Bem...vamos ver."
- "Ele faz uma pausa por um momento e olha em volta."
+    ap "Bem...vamos ver."
+    "Ele faz uma pausa por um momento e olha em volta."
 
- hide AP10
- with dissolve
+    hide AP10
+    with dissolve
 
- show AP6
- with dissolve
+    show AP6
+    with dissolve
+    # "AP6" já foi adicionado
 
- ap "Os cachorros-quentes estão frescos...tipo, o pacote foi entregue hoje..."
- ap "Vai demorar um pouco para esquentar no forno..."
- mc "Você não pode simplesmente colocar no micro-ondas?"
- ap "Se você quiser cachorro-quente porém cru por dentro..."
+    ap "Os cachorros-quentes estão frescos...tipo, o pacote foi entregue hoje..."
+    ap "Vai demorar um pouco para esquentar no forno..."
+    mc "Você não pode simplesmente colocar no micro-ondas?"
+    ap "Se você quiser Enroladinho porém cru por dentro..."
 
- hide AP6
- with dissolve
+    hide AP6
+    with dissolve
 
- show AP7
- with dissolve
+    show AP7
+    with dissolve
+    # "AP7" já foi adicionado
 
- "Ele sorri enquanto coloca um cachorro-quente no forno e o liga..."
+    "Ele sorri enquanto coloca um Enroladinho no forno e o liga..."
 
- hide AP7
- with dissolve
+    hide AP7
+    with dissolve
 
- show AP8
- with dissolve
+    show AP8
+    with dissolve
+    # "AP8" já foi adicionado
 
- mc "Ah..não."
+    mc "Ah..não."
 
- hide AP8
- with dissolve
+    hide AP8
+    with dissolve
 
- show AP1
- with dissolve
+    show AP1
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP1")
 
- ap "Olha, por que você não dá uma volta na loja? Provavelmente estará pronto quando você terminar de fazer compras."
- "Suspiro e olho em volta..." 
- "Por mais que eu queira procrastinar, preciso fazer as compras."
- mc "Não acho que haja outra coisa para fazer..."
+    ap "Olha, por que você não dá uma volta na loja? Provavelmente estará pronto quando você terminar de fazer compras."
+    "Suspiro e olho em volta..." 
+    "Por mais que eu queira procrastinar, preciso fazer as compras."
+    mc "Não acho que haja outra coisa para fazer..."
 
- hide AP1
- with dissolve
+    hide AP1
+    with dissolve
 
- show AP7
- with dissolve
+    show AP7
+    with dissolve
+    # "AP7" já foi adicionado
 
- ap "Não.Haha..."
+    ap "Não.Haha..."
 
- hide AP7
- with dissolve
+    hide AP7
+    with dissolve
 
- show AP12
- with dissolve
+    show AP12
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP12")
 
- #stop music
+    #stop music
 
- "Antes que eu possa me virar, vejo a expressão brincalhona de Apollo se transformar em uma expressão preocupada..."
- 
- hide AP12
- with dissolve
+    "Antes que eu possa me virar, vejo a expressão brincalhona de Apollo se transformar em uma expressão preocupada..."
 
- show AP13
- with dissolve
- 
- "Sigo seu olhar e vejo outra pessoa na loja..."
- "Quando ele chegou aqui? Não vi e nem ouvi mais ninguém aqui..."
- ap "Esse cara..."
- "Apollo murmurou mais alguma coisa, mas não consegui ouvir."
- mc "Você o conhece?"
- "Apollo me encarou por um momento, antes de responder..." 
- "Ele não parecia muito contente com a presença desse cara."
- ap "Não."
- "Estranho..."
- "Muito, mas muito estranho mesmo..."
+    hide AP12
+    with dissolve
 
- hide AP13
- with dissolve
+    show AP13
+    with dissolve
+    # "AP13" já foi adicionado
 
- show AP10
- with dissolve
+    "Sigo seu olhar e vejo outra pessoa na loja..."
+    "Quando ele chegou aqui? Não vi e nem ouvi mais ninguém aqui..."
+    ap "Esse cara..."
+    "Apollo murmurou mais alguma coisa, mas não consegui ouvir."
+    mc "Você o conhece?"
+    "Apollo me encarou por um momento, antes de responder..." 
+    "Ele não parecia muito contente com a presença desse cara."
+    ap "Não."
+    "Estranho..."
+    "Muito, mas muito estranho mesmo..."
 
- "Eu me viro para sair, sentindo essa tensão estranha crescer..."
+    hide AP13
+    with dissolve
 
- hide AP10
- with dissolve
+    show AP10
+    with dissolve
+    # "AP10" já foi adicionado
 
- show AP12
- with dissolve
+    "Eu me viro para sair, sentindo essa tensão estranha crescer..."
 
- "De repente, Apolo me puxa pelo ombro, me fazendo encará-lo."
- ap "Só...só...tome cuidado, ok?"
- "Nosso clima lúdico desapareceu completamente agora..."
+    hide AP10
+    with dissolve
 
- hide AP12
- with dissolve
+    show AP12
+    with dissolve
+    # "AP12" já foi adicionado
 
- show Loja_2
- with dissolve
+    "De repente, Apolo me puxa pelo ombro, me fazendo encará-lo."
+    ap "Só...só...tome cuidado, ok?"
+    "Nosso clima lúdico desapareceu completamente agora..."
 
- show M3
- with dissolve
- $ persistent.m3 = True
- $ persistent.m1 = True
- $ persistent.m2 = True
- $ persistent.m4 = True
- $ persistent.m6 = True
- $ persistent.m7 = True
- $ persistent.m8 = True
- $ persistent.m9 = True
- $ persistent.m5 = True
+    hide AP12
+    with dissolve
 
- "Olho para o cara em questão, depois volto para Apollo e aceno com a cabeça..."
+    show Loja_2
+    with dissolve
 
- hide Loja_2
- with dissolve
+    show M3
+    with dissolve
+    $ persistent.unlocked_sprites.add("M3")
 
- show Loja_1
- with dissolve
 
- hide M3
- with dissolve
 
- "Não vi nenhum problema com esse homem, inicialmente."
- "Claro que ele não é alguém com quem eu estaria implorando para conversar, mas agora estou bastante curioso..."
- "Eles têm algum drama mal resolvido ou algo assim?"
- "De qualquer forma, preciso fazer algumas coisas aqui, não tenho tempo a perder..."
- "Se for importante, provavelmente descobrirei..."
+    "Olho para o cara em questão, depois volto para Apollo e aceno com a cabeça..."
 
- show Loja_2
- with dissolve
+    hide Loja_2
+    with dissolve
 
- show Timeskip
- $ renpy.pause(2.0)
- hide Timeskip
- jump continuing2
+    show Loja_1
+    with dissolve
+
+    hide M3
+    with dissolve
+
+    "Não vi nenhum problema com esse homem, inicialmente."
+    "Claro que ele não é alguém com quem eu estaria implorando para conversar, mas agora estou bastante curioso..."
+    "Eles têm algum drama mal resolvido ou algo assim?"
+    "De qualquer forma, preciso fazer algumas coisas aqui, não tenho tempo a perder..."
+    "Se for importante, provavelmente descobrirei..."
+
+    show Loja_2
+    with dissolve
+
+    show Timeskip
+    $ renpy.pause(2.0)
+    hide Timeskip
+    jump continuing2
 
 label continuing2:
 
- "*Suspira*"
+    "*Suspira*"
 
- "Finalmente terminei as compras..."
- "Não demorou muito, no entanto eu gostaria de saber se o cachorro-quente está pronto."
- "Pago todas as minhas coisas e me viro para verificar Apollo..."
+    "Finalmente terminei as compras..."
+    "Não demorou muito, no entanto eu gostaria de saber se o Enroladinho está pronto."
+    "Pago todas as minhas coisas e me viro para verificar Apollo..."
 
- #Segunda escolha:
+    # Adiciona itens de compra ao inventário
+    $ add_item(item_enroladinho)
+    $ add_item(item_folha)
+    $ add_item(item_capsulas)
+    "Coloco enroladinho, folha e cápsulas na sacola."
 
- menu:
-   "Corredor da esquerda(Artigos de jardinagem)":
-      jump Left
-   "Corredor da direita(Fast food)":
-      jump continuing3
- 
+    #Segunda escolha:
+
+    menu:
+        "Corredor da esquerda(Artigos de jardinagem)":
+            jump Left
+        "Corredor da direita(Fast food)":
+            jump continuing3
+
 label continuing3:
 
- hide Loja_2
+    hide Loja_2
 
- show Loja_1
+    show Loja_1
 
- "Limpo minha cabeça pensando no delicioso cachorro-quente me esperando nos fundos da loja."
- "Caminhando pelos corredores, rapidamente chego ao balcão novamente e vejo Apollo tirando cuidadosamente meu cachorro-quente do forno assim que me vê."
+    "Limpo minha cabeça pensando no delicioso Enroladinho me esperando nos fundos da loja."
+    "Caminhando pelos corredores, rapidamente chego ao balcão novamente e vejo Apollo tirando cuidadosamente meu Enroladinho do forno assim que me vê."
 
- show AP4
- with dissolve
+    show AP4
+    with dissolve
+    # "AP4" já foi adicionado
 
- ap "Terminou?"
+    ap "Terminou?"
 
- hide AP4
- with dissolve
+    hide AP4
+    with dissolve
 
- show AP1
- with dissolve
+    show AP1
+    with dissolve
+    # "AP1" já foi adicionado
 
- mc "Não até eu pegar meu cachorro-quente hehehe..."
- "Ele me dá o lanche e ri. Eu imediatamente dou uma mordida."
+    mc "Não até eu pegar meu Enroladinho hehehe..."
+    "Ele me dá o lanche e ri. Eu imediatamente dou uma mordida."
 
- hide AP1
- with dissolve
+    hide AP1
+    with dissolve
 
- show AP5
- with dissolve
+    show AP5
+    with dissolve
+    $ persistent.unlocked_sprites.add("AP5")
 
- ap "É horrível, não é?"
+    ap "É horrível, não é?"
 
- hide AP5
- with dissolve
+    hide AP5
+    with dissolve
 
- show AP13
- with dissolve
+    show AP13
+    with dissolve
+    # "AP13" já foi adicionado
 
- "Apollo levanta uma sobrancelha na expectativa de um insulto..."
+    "Apollo levanta uma sobrancelha na expectativa de um insulto..."
 
- hide AP13
- with dissolve
+    hide AP13
+    with dissolve
 
- show AP10
- with dissolve
+    show AP10
+    with dissolve
+    # "AP10" já foi adicionado
 
- mc "Não é tão ruim..."
- mc "Nada de especial..."
- "Mastigo mais um pouco do lanche de sabor “ok”"
+    mc "Não é tão ruim..."
+    mc "Nada de especial..."
+    "Mastigo mais um pouco do lanche de sabor “ok”"
 
- hide AP10
- with dissolve
+    hide AP10
+    with dissolve
 
- show AP5
- with dissolve
+    show AP5
+    with dissolve
+    # "AP5" já foi adicionado
 
- hide AP5
- with dissolve
+    hide AP5
+    with dissolve
 
- show AP2
- with dissolve
+    show AP2
+    with dissolve
+    # "AP2" já foi adicionado
 
- ap "É o maior lanche que tenho aqui. Mas provavelmente você ficaria melhor com macarrão instantâneo"
- "Continuo comendo como se fosse o último pedaço de comida do planeta. É mais saboroso quando você está com fome, eu acho..."
- mc "Mas eu não compraria apenas macarrão… eu ainda passaria todo esse tempo fazendo compras e ainda teria que cozinhar em casa."
+    ap "É o maior lanche que tenho aqui. Mas provavelmente você ficaria melhor com macarrão instantâneo"
+    "Continuo comendo como se fosse o último pedaço de comida do planeta. É mais saboroso quando você está com fome, eu acho..."
+    mc "Mas eu não compraria apenas macarrão… eu ainda passaria todo esse tempo fazendo compras e ainda teria que cozinhar em casa."
 
- hide AP2
- with dissolve
+    hide AP2
+    with dissolve
 
- show AP10
- with dissolve
+    show AP10
+    with dissolve
+    # "AP10" já foi adicionado
 
- ap "Verdade..."
- "Nós ficamos em silêncio por alguns segundos..."
- "Eu pensei que teríamos mais coisas pra conversar depois de tanto tempo separados, mas acho que nenhum de nós consegue pensar em um assunto..."
- "Eu discretamente o examino dos pés a cabeça."
- "Pensando bem, o Apollo não parece ter mudado nada desde o ensino médio, seu rosto, seu senso de humor, tudo parece igual..."
- "Meus olhos ficam fixados no broche preso ao seu avental."
+    ap "Verdade..."
+    "Nós ficamos em silêncio por alguns segundos..."
+    "Eu pensei que teríamos mais coisas pra conversar depois de tanto tempo separados, mas acho que nenhum de nós consegue pensar em um assunto..."
+    "Eu discretamente o examino dos pés a cabeça."
+    "Pensando bem, o Apollo não parece ter mudado nada desde o ensino médio, seu rosto, seu senso de humor, tudo parece igual..."
+    "Meus olhos ficam fixados no broche preso ao seu avental."
 
- hide AP10
- with dissolve
+    hide AP10
+    with dissolve
 
- show AP5
- with dissolve
+    show AP5
+    with dissolve
+    # "AP5" já foi adicionado
 
- mc "Então, ainda gosta de palhaços?"
- "Eu olho para o broche de palhaço em seu avental."
+    mc "Então, ainda gosta de palhaços?"
+    "Eu olho para o broche de palhaço em seu avental."
 
- hide AP5
- with dissolve
+    hide AP5
+    with dissolve
 
- show AP2
- with dissolve
+    show AP2
+    with dissolve
+    # "AP2" já foi adicionado
 
- ap "O que você quer dizer com “ainda”? Tipo, foi uma fase ou algo assim?"
+    ap "O que você quer dizer com “ainda”? Tipo, foi uma fase ou algo assim?"
+
+    hide AP2
+    with dissolve
+
+    show AP13
+    with dissolve
+    # "AP13" já foi adicionado
 
- hide AP2
- with dissolve
+    mc "Quero dizer, você era bastante obcecado por eles durante o ensino médio."
+    mc "Jardim de infância, ensino fundamental, ensino médio..."
+    ap "..."
 
- show AP13
- with dissolve
+    hide AP13
+    with dissolve
 
- mc "Quero dizer, você era bastante obcecado por eles durante o ensino médio."
- mc "Jardim de infância, ensino fundamental, ensino médio..."
- ap "..."
-
- hide AP13
- with dissolve
+    show AP9
+    with dissolve
+    # "AP9" já foi adicionado
 
- show AP9
- with dissolve
+    ap "Você está me fazendo parecer um esquisitão..."
+    mc "Faculdade, seu primeiro emprego..."
+    ap "Ok, ok, ok...já entendi."
+    ap "Quer dizer... qual é, você abandonaria esse carinha?"
+    "Ele aponta para o broche com uma cara suplicante."
+    ap "Como eu poderia deixar esse carinha para trás?"
+    "Ele faz uma cara de súplica apontando para a cara do palhaço."
 
- ap "Você está me fazendo parecer um esquisitão..."
- mc "Faculdade, seu primeiro emprego..."
- ap "Ok, ok, ok...já entendi."
- ap "Quer dizer... qual é, você abandonaria esse carinha?"
- "Ele aponta para o broche com uma cara suplicante."
- ap "Como eu poderia deixar esse carinha para trás?"
- "Ele faz uma cara de súplica apontando para a cara do palhaço."
+    hide AP9
+    with dissolve
 
- hide AP9
- with dissolve
+    show AP8
+    with dissolve
+    # "AP8" já foi adicionado
 
- show AP8
- with dissolve
+    "É um broche meio aleatório, especialmente se levar em conta o resto da roupa toda, mas eu o vejo desde que tinha 5 anos."
+    "Seria difícil jogar fora a esse ponto."
 
- "É um broche meio aleatório, especialmente se levar em conta o resto da roupa toda, mas eu o vejo desde que tinha 5 anos."
- "Seria difícil jogar fora a esse ponto."
+    hide AP8
+    with dissolve
 
- hide AP8
- with dissolve
+    show AP6
+    with dissolve
+    # "AP6" já foi adicionado
 
- show AP6
- with dissolve
+    "Eu dou uma risadinha."
+    mc "Sim, acho que também não conseguiria jogar no lixo."
+    "Conversamos um pouco sobre assuntos aleatórios, enquanto Apollo fica olhando para aquele homem estranho de antes."
+    "O cara não parece ser um cliente comum..."
+    "Ele está usando muitas camadas para uma noite de outono, além disso está gastando muito tempo escolhendo seus produtos, seu carrinho de compras ainda está bem vazio..."
+    "Ele olhou para nós por cima do ombro, mas não pareceu se incomodar com os olhares constantes de Apollo."
+    "Estou começando a pensar que isso é uma “interação” comum entre esses dois."
+    
+    #terceira escolha
+    menu:
+        "Perguntar qual é o problema":
+            $ add_ap_points(+5)
+            jump problem
+        "Deixar para lá":
+            $ add_ap_points(-5) 
+            jump lookback
 
- "Eu dou uma risadinha."
- mc "Sim, acho que também não conseguiria jogar no lixo."
- "Conversamos um pouco sobre assuntos aleatórios, enquanto Apollo fica olhando para aquele homem estranho de antes."
- "O cara não parece ser um cliente comum..."
- "Ele está usando muitas camadas para uma noite de outono, além disso está gastando muito tempo escolhendo seus produtos, seu carrinho de compras ainda está bem vazio..."
- "Ele olhou para nós por cima do ombro, mas não pareceu se incomodar com os olhares constantes de Apollo."
- "Estou começando a pensar que isso é uma “interação” comum entre esses dois."
- 
- #terceira escolha
- menu:
-    "Perguntar qual é o problema":
-        $ ap_points += 5
-        jump problem
-    "Deixar para lá":
-        $ ap_points -= 2
-        jump lookback
+label lookback: #+10% com o Apollo
 
- label lookback: #+10% com o Apollo
+    "Ugh... eu realmente não preciso perguntar... Ele me diria se quisesse..."
 
- "Ugh... eu realmente não preciso perguntar... Ele me diria se quisesse..."
+    jump continuing4
 
- jump continuing4
+label continuing4:
 
- label continuing4:
+    "Novamente, não estou desesperado para fazer amizade com aquele homem."
+    "Não vai doer manter distância..."
+    "Você sabe, só para ter certeza."
+    "Um alarme repentino soa embaixo do balcão, interrompendo nosso silêncio."
+    "Apollo olha para seu telefone e sua preocupação parece desaparecer..."
 
- "Novamente, não estou desesperado para fazer amizade com aquele homem."
- "Não vai doer manter distância..."
- "Você sabe, só para ter certeza."
- "Um alarme repentino soa embaixo do balcão, interrompendo nosso silêncio."
- "Apollo olha para seu telefone e sua preocupação parece desaparecer..."
+    show AP11
+    with dissolve
+    # "AP11" já foi adicionado
+    hide AP6
 
- show AP11
- with dissolve
- hide AP6
+    ap "Ah! Hora de te expulsar!"
+    mc "Hein?"
+    ap "Chama-se hora de fechar, senhora."
+    "Seu sorriso irônico me pega desprevenido. E essa coisa de “senhora” de novo? Sério?"
+    mc "Acho que o atendimento acaba na hora de fechar também..."
 
- ap "Ah! Hora de te expulsar!"
- mc "Hein?"
- ap "Chama-se hora de fechar, senhora."
- "Seu sorriso irônico me pega desprevenido. E essa coisa de “senhora” de novo? Sério?"
- mc "Acho que o atendimento acaba na hora de fechar também..."
+    hide AP11
+    with dissolve
 
- hide AP11
- with dissolve
+    show AP7
+    with dissolve
+    # "AP7" já foi adicionado
 
- show AP7
- with dissolve
+    ap "Claro. Sou pago para ser legal até as 21h. Depois disso posso ser um merda..."
+    "Nós dois rimos e eu arrumo minhas coisas e me preparo para sair."
+    "Nós não nos falamos muito na faculdade, eu imaginava que ele se tornaria uma pessoa diferente..."
+    "Mas ele parece ser exatamente o mesmo daqueles dias..."
 
- ap "Claro. Sou pago para ser legal até as 21h. Depois disso posso ser um merda..."
- "Nós dois rimos e eu arrumo minhas coisas e me preparo para sair."
- "Nós não nos falamos muito na faculdade, eu imaginava que ele se tornaria uma pessoa diferente..."
- "Mas ele parece ser exatamente o mesmo daqueles dias..."
+    stop music
 
- stop music
+    play music "audio/ambience-wind-blowing-through-trees-01-186986.mp3" volume 50
 
- play music "audio/ambience-wind-blowing-through-trees-01-186986.mp3"volume 50
+    hide AP7
+    with dissolve
 
- hide AP7
- with dissolve
+    #Contexto: entrada externa da loja de conveniência (frente da loja - noite)
 
- #Contexto: entrada externa da loja de conveniência (frente da loja - noite)
+    show Casa_12
 
- show Casa_12
+    "Cara, está escuro... Não percebi que passamos tanto tempo conversando. "
+    "Não tinha planejado ficar fora até agora. "
+    "Odeio voltar para casa depois de escurecer..."
+    "Bom, eu não diria que odeio..."
+    "É inconveniente, claro, não consigo enxergar muito bem, mesmo com as luzes da rua, sim..."
+    "Mas, a noite ainda é linda."
+    "Está frio, a brisa noturna sopra as folhas das árvores escuras, tornando toda a estética misteriosa..."
 
- "Cara, está escuro... Não percebi que passamos tanto tempo conversando. "
- "Não tinha planejado ficar fora até agora. "
- "Odeio voltar para casa depois de escurecer..."
- "Bom, eu não diria que odeio..."
- "É inconveniente, claro, não consigo enxergar muito bem, mesmo com as luzes da rua, sim..."
- "Mas, a noite ainda é linda."
- "Está frio, a brisa noturna sopra as folhas das árvores escuras, tornando toda a estética misteriosa..."
+    #Contexto: casa do MC (pequeno estúdio - noite)
 
- #Contexto: casa do MC (pequeno estúdio - noite)
+    stop music
 
- stop music
+    show Casa_4
 
- show Casa_4
+    "Antes que eu perceba, estou em casa."
+    "Entro na minha casa, lavo as mãos e começo a organizar meu armazenamento."
 
- "Antes que eu perceba, estou em casa."
- "Entro na minha casa, lavo as mãos e começo a organizar meu armazenamento."
+    #timeskip
 
- #timeskip
+    "Não havia muitas coisas para organizar, mas demorei um pouco mesmo assim."
 
- "Não havia muitas coisas para organizar, mas demorei um pouco mesmo assim."
+    play music "audio/chuva-1-119168.mp3" volume 50
 
- play music "audio/chuva-1-119168.mp3"volume 50
+    "Começou a chover lá fora."
+    "Estou cansado... "
+    "É melhor dormir agora, amanhã terei um dia agitado... "
+    "Provavelmente..."
+    "Tomo um banho e caio na cama, adormecendo logo depois, o som da chuva me guia para um sono profundo."
 
- "Começou a chover lá fora."
- "Estou cansado... "
- "É melhor dormir agora, amanhã terei um dia agitado... "
- "Provavelmente..."
- "Tomo um banho e caio na cama, adormecendo logo depois, o som da chuva me guia para um sono profundo."
+    stop music
+    hide Casa_4
+    hide Casa_12
+    hide Loja_1
+    hide Loja_2
+    hide Casa_10
+    hide Casa_5
+    hide AP9
+    hide screen hud
+    hide AP6
+    window hide
 
- stop music
- hide Casa_4
- hide Casa_12
- hide Loja_1
- hide Loja_2
- hide Casa_10
- hide Casa_5
- hide AP9
- hide screen hud
- hide AP6
- window hide
-
- show Timeskip
- $ renpy.pause(2.0)
- hide Timeskip 
- jump day_2
+    show Timeskip
+    $ renpy.pause(2.0)
+    hide Timeskip 
+    jump day_2
 
 label endgame:
 
- play music "audio/soundtrack/floresta.ogg"volume 5
+    play music "audio/soundtrack/floresta.ogg" volume 5
 
- window hide dissolve
+    window hide dissolve
 
- show scene_credits
+    show scene_credits
 
- $ renpy.pause(10.0)
+    $ renpy.pause(10.0)
 
-return()
+    return()
 
 init python:
     def alterar_sanidade(valor):
@@ -675,12 +685,21 @@ init python:
         if sanidade <= 0:
             renpy.jump("endgame")
 
+    def add_ap_points(valor):
+        global ap_points
+        ap_points += valor
+
+    def add_max_pontos(valor):
+        global max_pontos
+        max_pontos += valor
+        
 label show_ending(imagem, musica):
     stop music
-    play music musica
+    play sound musica
     scene expression imagem
     with fade
-    $ renpy.pause(6.0)  # tempo de exibição
+    $ renpy.pause(3.0, hard=True)  # Toca só 3 segundos (ajuste o tempo)
+    stop sound fadeout 1.0
     hide expression imagem
     with fade
     return

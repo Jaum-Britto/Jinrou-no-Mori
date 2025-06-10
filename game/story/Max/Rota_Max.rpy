@@ -1,10 +1,14 @@
 #desbloqueia as imagens de max na galeria.
 
 label Rota_Max:
-    scene porao_max
+    show porao_max_noite
     show screen hud
+    show M01 at center
+    $ persistent.unlocked_sprites.add("M01")
     "Acordo, confuso, preso a uma cadeira. Cordas apertam meu corpo, impossibilitando qualquer movimento."
     "Max está ali, me observando em silêncio."
+    show M3 at center
+    $ persistent.unlocked_sprites.add("M3")
     max "…"
     "Ele parece mais surpreso do que eu."
 
@@ -19,17 +23,22 @@ label max_baixa_afinidade:
     menu:
         "O que fazer?"
         "Se apresentar (+10 max pontos)":
-            $ max_pontos += 10
+            $ max_pontos(+10)
+            show M2 at center
+            $ persistent.unlocked_sprites.add("M2")
             "Ele está agindo de maneira bem razoável… pra um sequestrador…"
             "Provavelmente é melhor só ir na dele por enquanto."
             mc "O meu é [povname]."
-            "A… uh… a calda dele se mexe com animação e um pouco de surpresa."
+            show M3 at center
             max "Sim, exatamente…"
+            show M2 at center
             "Ele sorri parecendo aliviado com alguma coisa."
             max "(letra pequena) isso foi mais fácil do que pensei…"
             jump max_baixa_continua
         "Não dizer nada (-10 sanidade)":
             $ alterar_sanidade(-10)
+            show M4 at center
+            $ persistent.unlocked_sprites.add("M4")
             "Ele realmente espera que dizer isso vai simplesmente resetar tudo o que aconteceu?"
             "O que ele acha que vai conseguir com isso?"
             "Não acho que seja seguro dar qualquer informação pra-"
@@ -38,6 +47,8 @@ label max_baixa_afinidade:
             jump max_baixa_continua
 
 label max_baixa_continua:
+    show M5 at center
+    $ persistent.unlocked_sprites.add("M5")
     "Antes que eu pudesse reagir, ele se vira e sai da sala."
     "Ouço o som de várias trancas sendo fechadas atrás da porta…"
     "Ele não deve voltar tão cedo…"
@@ -52,14 +63,16 @@ label max_baixa_continua:
     "O que há com aquele cara?"
     "Novamente ouço o som das trancas atrás da porta."
     "E ele aparece."
-    # Max sad_3
+    show M6 at center
+    $ persistent.unlocked_sprites.add("M6")
     "Max não parece muito interessado em conversar dessa vez."
     "Ele pega algo atrás da cortina e come. Parecia um remédio."
     "Ele apenas passa por mim sem dizer uma palavra e se senta à mesa..."
     "Abrindo a gaveta da mesa, tem vários pedaços de madeira."
     "Ele pega um e começa a arranhá-lo. Parece uma pequena escultura no formato de uma pessoa..."
-    # cg: max esculpindo
     "Ah... acho que ele percebeu que eu estou olhando."
+    show M7 at center
+    $ persistent.unlocked_sprites.add("M7")
     max "Hã... isso é..."
     max "Bem... você sabe..."
     mc "O Apollo...?"
@@ -67,7 +80,8 @@ label max_baixa_continua:
     "Max fica um pouco tenso, como se eu tivesse descoberto um segredo."
     mc "Ele trabalha na loja de conveniência..."
     max "Sim."
-    "Max: o rosto dele é um pouco estranho você não acha?"
+    show M2 at center
+    max "Max: o rosto dele é um pouco estranho você não acha?"
     max "Digo... os olhos coloridos e aquelas coisinhas na bochecha...eee..."
     "Que papo é esse?"
     max "Eu não sabia que humanos poderiam ter aparências tão diferentes como a dele."
@@ -86,6 +100,8 @@ label max_baixa_continua:
     menu:
         "Perguntar se é humano (-5 sanidade)":
             $ alterar_sanidade(-5)
+            show M8 at center
+            $ persistent.unlocked_sprites.add("M8")
             mc "Hã... Max."
             "Ele não se vira, apenas move os olhos para minha direção, sem parar de esculpir."
             mc "Você não é humano certo?"
@@ -98,6 +114,8 @@ label max_baixa_continua:
             jump max_baixa_humano
         "Perguntar o que Max é (-10 sanidade)":
             $ alterar_sanidade(-10)
+            show M9 at center
+            $ persistent.unlocked_sprites.add("M9")
             mc "Hã... Max."
             "Ele não se vira, apenas move os olhos para minha direção, sem parar de esculpir."
             mc "Você não é humano certo? O que... você é...?"
@@ -107,16 +125,19 @@ label max_baixa_continua:
 label max_baixa_humano:
     menu:
         "Você parece humano pra mim... (+10 max pontos)":
-            $ max_pontos += 10
+            $ max_pontos(+10)
+            show M2 at center
             mc "Bem... você parece bem humano pra mim..."
             "Talvez eu consiga ganhar a confiança dele assim..."
             "Max pensa por um momento."
             "Acho que ele não esperava por essa resposta."
             max "Mas não sou."
             max "Não se confunda."
+            show M4 at center
             "Ele solta uma risada baixa, mas é estranha, sem calor. Coloca a escultura na gaveta com um movimento rápido, como se fosse esconder algo mais do que apenas o objeto. Suas mãos tremem um pouco ao fechar a gaveta."
             jump max_baixa_continua2
         "Não dizer nada":
+            show M5 at center
             "Ok... isso era óbvio, mas essa resposta só deixa a situação mais estranha."
             jump max_baixa_continua2
 
@@ -127,8 +148,9 @@ label max_baixa_continua2:
     jump max_final_1
 
 label max_final_1:
-    # Final ruim: MC morre no ritual
-    scene caverna
+    show caverna
+    show M010 at center
+    $ persistent.unlocked_sprites.add("M010")
     "Parece mais uma caverna..."
     "É úmido, escuro..."
     "Eu estou amarrado de novo. Mas as cordas estão muito mais apertadas."
@@ -161,14 +183,14 @@ label max_final_1:
     "Ele termina, mas não se afasta. Ele fica ali, observando o que fez, o olhar satisfeito, como se estivesse esperando alguma reação minha."
     "O lobo agora está dentro de mim."
     max "Agora, você entende o que é ser um... monstro."
-    jump expression show_ending("images/lobo_final.png", "audio/sua_musica_final.ogg")
+    jump expression show_ending("images/Max/max_jumpscaare_home.png", "audio/transforming_screaming_werewolf.ogg")
 
 label max_media_afinidade:
     # Igual ao início da baixa afinidade, mas com chance de sobrevivência e mais diálogo
     menu:
         "O que fazer?"
         "Se apresentar (+10 max pontos)":
-            $ max_pontos += 10
+            $ max_pontos(+10)
             mc "O meu é [povname]."
             "A… uh… a calda dele se mexe com animação e um pouco de surpresa."
             max "Sim, exatamente…"
@@ -207,11 +229,11 @@ label max_media_exploracao:
     menu:
         "Comer barra de cereais":
             $ alterar_sanidade(15)
-            $ max_pontos += 5
+            $ max_pontos(+10)
             "Como a barra de cereais. Ela some do inventário."
             jump max_media_explora_quarto
         "Não comer":
-            $ max_pontos -= 10
+            $ max_pontos(-20)
             "Decido não comer. A barra some do inventário."
             jump max_media_explora_quarto
 
@@ -284,7 +306,9 @@ label max_media_ritual:
 
 label max_final_2:
     # Final ritual, transformação, etc.
-    scene caverna
+    show caverna
+    show M010 at center
+    $ persistent.unlocked_sprites.add("M010")
     "Parece mais uma caverna..."
     "É úmido, escuro..."
     "Eu estou amarrado de novo. Mas as cordas estão muito mais apertadas."
@@ -319,6 +343,8 @@ label max_final_2:
     "Minha pressão cai lentamente..."
     max "E-espera..."
     max "O que... o que eu-?"
+    jump expression show_ending("images/Max/wolf_skin.png", "audio/melancolic_howl.ogg")
+    $ persistent.CGS_6 = True
     jump endgame
 
 label max_alta_afinidade:
