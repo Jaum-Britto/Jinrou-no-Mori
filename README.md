@@ -2,6 +2,13 @@
 
 **Jogo Visual Novel interativo desenvolvido com Ren’Py**
 
+## 🌐 Onde Jogar
+
+Você pode jogar **Jinrou no Mori** gratuitamente na plataforma Itch.io:
+
+👉 [Jogar no Itch.io](https://dokidokisame.itch.io/jinrou-no-mori)
+
+---
 ## 🎯 Descrição do Projeto
 
 `Jinrou no Mori` é um TCC acadêmico que apresenta uma **visual novel leve (light novel)**, desenvolvida em Ren’Py e voltada para narrativas imersivas com escolhas do jogador. A história mistura **mistério, romance e fantasia**, ambientada em uma pequena cidade próxima a uma floresta misteriosa.
@@ -93,7 +100,8 @@ Para projetos livres, recomenda-se usar VSCodium — que é o VS Code sem as par
 
 #### João Gabriel Pfaff de Britto  
 - GitHub: [Jaum-Britto](https://github.com/Jaum-Britto)  
-- E-mail: joao.g.pfaff@gmail.com  
+- E-mail: joao.g.pfaff@gmail.com
+- Perfi Itch.IO: [Hide](https://hidezin.itch.io/)
 
 #### Yasmim do Valle  
 - GitHub: [inserir nome](inserir link)  
