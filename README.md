@@ -88,7 +88,24 @@ O sistema foi avaliado por **Pontos de Função (APF)** com total estimado de **
 - O código-fonte é livre (MIT), mas o VS Code baixado do site oficial da Microsoft inclui partes proprietárias (como o branding), então não pode ser redistribuído.
 Para projetos livres, recomenda-se usar VSCodium — que é o VS Code sem as partes fechadas.
 
+## 📫 Contato  
+### Autores e Integrantes do Projeto Jinrou no Mori:
 
+#### João Gabriel Pfaff de Britto  
+- GitHub: [Jaum-Britto](https://github.com/Jaum-Britto)  
+- E-mail: [inserir e-mail]  
+
+#### Yasmim do Valle  
+- GitHub: [inserir nome](inserir link)  
+- E-mail: [inserir e-mail]  
+
+#### Guilherme Reis  
+- GitHub: [guilherme-dope](https://github.com/guilherme-dope)  
+- E-mail: guimontemor777@gmail.com  
+
+#### Davi Vicente do Prado Silva Rocha  
+- GitHub: [davivicente2](https://github.com/davivicente2)  
+- E-mail: davi.vicente.rocha@gmail.com
 
 
 ## 🚀 Próximos Passos
